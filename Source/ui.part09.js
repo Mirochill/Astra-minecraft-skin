@@ -1,0 +1,11 @@
+$('rosterPrev').addEventListener('click',()=>$('roster').scrollBy({left:-400,behavior:'smooth'}));$('rosterNext').addEventListener('click',()=>$('roster').scrollBy({left:400,behavior:'smooth'}));
+$('browseBtn').addEventListener('click',()=>openModal('browseModal'));$('closeBrowse').addEventListener('click',()=>closeModal('browseModal'));$('helpBtn').addEventListener('click',()=>openModal('helpModal'));$('closeHelp').addEventListener('click',()=>closeModal('helpModal'));
+for(let id of ['browseModal','helpModal'])$(id).addEventListener('click',e=>{if(e.target===$(id))closeModal(id)});
+$('themeBtn').addEventListener('click',()=>{document.body.classList.toggle('light');$('themeBtn').innerHTML=icon(document.body.classList.contains('light')?'moon':'sun');store()});
+$('exportBtn').addEventListener('click',()=>setExportOpen($('exportMenu').hidden));$('exportMenu').addEventListener('click',e=>{const b=e.target.closest('[data-export]');if(b)doExport(b.dataset.export)});
+window.addEventListener('click',e=>{if(!e.target.closest('.export-wrap'))setExportOpen(false)});
+$('rotateBtn').addEventListener('click',switchRotate);$('layersBtn').addEventListener('click',switchLayers);$('resetBtn').addEventListener('click',resetCamera);$('fullscreenBtn').addEventListener('click',fullscreen);
+$('zoomIn').addEventListener('click',()=>{if(renderer)renderer.distance=Math.max(37,renderer.distance-5)});$('zoomOut').addEventListener('click',()=>{if(renderer)renderer.distance=Math.min(105,renderer.distance+5)});
+$('gridBtn').addEventListener('click',()=>{if(renderer){renderer.grid=!renderer.grid;toggleButton('gridBtn',renderer.grid);$('previewCard').classList.toggle('clean',!renderer.grid)}});
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{if(renderer){renderer.view(b.dataset.view);toggleButton('rotateBtn',false);document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x===b))}}));
+document.querySelectorAll('[data-env]').forEach(b=>b.addEventListener('click',()=>switchEnvironment(b.dataset.env)));
