@@ -83,7 +83,7 @@
   for(let p of ['body','ra','la'])for(let f of ['front','back','left','right']){
    if(v===0)checker(p,f,'#54a889','#283e3b',2);
    else if(v===1){shade(p,f,'#8cbdca');stamp(p,f,0,3,['.ww.','wwww','.ww.'],{w:'#e3e8dc'});stamp(p,f,2,8,['.ww.','wwww'],{w:'#e3e8dc'});}
-   else{shade(p,f,'#7e9bb9');for(let y=2;y<12;y+=4)paint(p,f,x=0,y,PARTS[p].w,1,'#aec8d2');}
+   else{shade(p,f,'#7e9bb9');for(let y=2;y<12;y+=4)paint(p,f,0,y,PARTS[p].w,1,'#aec8d2');}
   }
   openCoat('#333946',v===0?'#58a88a':v===1?'#8bbcc9':'#819fbb',1);if(v===0){checker('body','front','#54a889','#283e3b',2);paint('body','front',2,0,4,9,'#333946');paint('body','front',3,0,2,2,S);}band('body',9,1,'#dedacc');
   for(let p of ['ra','la']){band(p,10,2,S);band(p,9,1,'#303740');}
@@ -101,7 +101,7 @@
    for(let p of ['rl','ll']){for(let f of ['front','back'])for(let y=0;y<5;y++)for(let x=0;x<4;x++)if((x+y)%3===0)dot(p,f,x,y,'#b4718e');band(p,5,4,'#e4c9bf');band(p,7,1,'#f1ded0');}
    paint('head','front',1,6,6,1,'#84a575',true);paint('head','front',2,6,3,1,'#b0c68b',true);dot('head','front',1,6,'#67865c',true);dot('head','front',6,6,'#67865c',true);
    for(let f of ['back','left','right'])shade('body',f,'#493036');
-  }else{vneck('#3c3e57',5);stamp('body','front',2,3,['r..r','.rr.','..r.','..r.'],{r:'#b35b70'});band('body',9,3,'#51516a');for(let p of ['rl','ll']){band(p,0,4,'#53516a');band(p,4,4,S);band(p,8,3,'#f0e5df');}}
+  }else{vneck('#3c3e57',5);stamp('body','front',2,3,['r..r','.rr.','..r.','..r/'],{r:'#b35b70'});band('body',9,3,'#51516a');for(let p of ['rl','ll']){band(p,0,4,'#53516a');band(p,4,4,S);band(p,8,3,'#f0e5df');}}
   dot('head','front',7,2,'#e6a5b7',true);dot('head','front',6,2,'#efaec4',true);
   if(v===1){stamp('head','front',5,0,['.w','ww','.d'],{w:'#e3cfad',d:'#bfa689'},true);stamp('head','front',0,3,['.k','k.','.k'],{k:'#7c514d'});stamp('body','front',1,4,['k.','.k','k.'],{k:'#91545f'});}
   break;
@@ -139,4 +139,4 @@
    else{openCoat('#c4c6b6',shirt);collar(tint(shirt,12));scout();scout('la','left',0,3);scout('ra','right',0,3);paint('body','front',0,5,2,1,'#d4c5a6');paint('body','front',6,5,2,1,'#d4c5a6');}
    for(let p of ['rl','ll']){band(p,2,1,'#6f6054');band(p,6,1,'#6f6054');for(let f of ['front','back']){paint(p,f,1,0,1,8,'#6f6054');paint(p,f,3,3,1,2,'#8e8880');}}
    paint('body','front',2,7,4,1,'#695c53');paint('body','front',3,9,2,2,'#b9b6a5');
-   if(c.id==='levi'){stamp('body','front',2,0,['w..w','.ww.','.ww.','..w.'],{w:'#ebe5d7'});}
+   if(c.id==='levi'){stamp('body','front',2,0,['w..w','.ww.','.ww.','..w/'],{w:'#ebe5d7'});}
