@@ -1,0 +1,16 @@
+{
+  "format": 1,
+  "editions": [
+    {
+      "file": "Anime_Skin_Studio.html",
+      "bytes": 113528,
+      "sha256": "1b7b51275682cd340a84c77cedc9cccb80cc269a55dbb7c8dee438e49418e8e2"
+    },
+    {
+      "file": "Anime_Atelier_Sculpted.html",
+      "bytes": 156968,
+      "sha256": "0ed86047513a8456033225e087c98c57eb7bfa90908bbfb4e18bd1268fd44ebd"
+    }
+  ],
+  "legacy_entry_point_unchanged": true
+}

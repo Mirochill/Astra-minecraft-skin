@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111310"><meta name="description" content="20 anime characters. 60 handcrafted Minecraft skins. A fully offline, interactive SVG and 3D skin studio.">
+<title>Anime Skin Studio — 20 characters, 60 looks</title>
+<style>
+@font-face{font-family:Studio;src:local('Inter'),local('Aptos'),local('Segoe UI');font-display:swap}
+:root{color-scheme:dark;--bg:#10120f;--panel:#191c18;--panel-hi:#20251e;--line:#ffffff0e;--text:#f0f2e9;--muted:#8c9486;--muted2:#596151;--accent:#f7a84c;--accent-rgb:247,168,76;--radius:22px;--shadow:0 16px 40px #00000016}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px Studio,Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button{color:inherit;cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:4px}button{border:0;background:none}button:disabled{opacity:.35;cursor:default}svg{display:block}button svg{pointer-events:none}button:active:not(:disabled){transform:translateY(1px)}.icon{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}.hidden{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}[hidden]{display:none!important}.app{max-width:1536px;margin:0 auto;padding:0 36px 24px}.topbar{height:86px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:20px}.brand{display:flex;gap:12px;align-items:center;white-space:nowrap}.brand-symbol{width:29px;height:29px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;transform:rotate(-4deg)}.brand-symbol i{border-radius:1px;background:var(--accent)}.brand-symbol i:nth-child(2){opacity:.38}.brand-symbol i:nth-child(3){opacity:.18}.brand-symbol i:nth-child(5){opacity:.7}.brand-symbol i:nth-child(7){opacity:.35}.brand-symbol i:nth-child(9){opacity:0}.brand-name{font-size:16px;font-weight:700;letter-spacing:-.6px}.brand-name span{font-weight:400;color:var(--muted);margin-left:4px}.edition{color:var(--muted);font-size:10px;letter-spacing:2px;display:flex;align-items:center;gap:12px}.edition:before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(var(--accent-rgb),.35)}.header-actions{display:flex;gap:10px;align-items:center}.icon-button{height:36px;min-width:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;color:var(--muted);transition:.18s;background:transparent}.icon-button:hover{color:var(--text);background:#ffffff09}.icon-button.active,.icon-button[aria-pressed=true]{color:var(--accent);background:rgba(var(--accent-rgb),.085)}.primary{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--accent);color:#20231b;padding:11px 15px;border-radius:10px;font-size:12px;font-weight:650;box-shadow:0 3px 18px rgba(var(--accent-rgb),.07);transition:.2s}.primary:hover{filter:brightness(1.1)}.primary .icon{width:16px;height:16px}.soft{color:var(--muted);border:1px solid var(--line);border-radius:9px;padding:9px 11px;display:flex;align-items:center;gap:8px;font-size:11px}.soft:hover{background:#ffffff05;color:var(--text)}.soft kbd{font-size:9px;opacity:.6;border:1px solid var(--line);padding:2px 4px;border-radius:4px}.export-wrap{position:relative}.export-menu{position:absolute;z-index:20;top:calc(100% + 10px);right:0;width:265px;padding:7px;border:1px solid #ffffff14;border-radius:16px;background:#24291f;box-shadow:0 20px 70px #0008}.export-menu button{width:100%;display:flex;align-items:center;gap:12px;text-align:left;padding:12px;border-radius:10px}.export-menu button:hover{background:#ffffff09}.export-menu button>.icon{color:var(--accent)}.export-menu button strong{font-size:12px;font-weight:550;display:block}.export-menu button small{font-size:10px;color:var(--muted);display:block;margin-top:3px}.export-menu hr{border:0;border-top:1px solid var(--line);margin:5px 9px}.export-menu .tag{margin-left:auto;font-size:9px;color:var(--muted);font-variant-numeric:tabular-nums}
+.selection-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:27px 0 24px}.eyebrow{font-size:9px;letter-spacing:1.8px;font-weight:650;color:var(--muted);display:flex;align-items:center;gap:9px}.eyebrow .dash{width:17px;height:1px;background:var(--accent)}.character-heading{display:flex;align-items:center;gap:22px}.character-name{font-size:clamp(25px,3vw,41px);letter-spacing:-1.6px;line-height:1.15;font-weight:580;margin:8px 0 0}.character-counter{font-size:11px;color:var(--muted2);font-variant-numeric:tabular-nums;letter-spacing:1px}.character-counter b{color:var(--muted);font-weight:500}.heading-nav{display:flex;gap:4px;align-items:center}.heading-nav .icon-button{border:1px solid var(--line);height:34px;min-width:34px}.collection-stat{display:flex;gap:22px;color:var(--muted);font-size:10px;align-items:center}.stat strong{font-size:20px;font-weight:500;letter-spacing:-.8px;color:var(--text);margin-right:5px}.stat+.stat{border-left:1px solid var(--line);padding-left:22px}.workspace{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:16px}.view-card{position:relative;border-radius:var(--radius);border:1px solid var(--line);background:var(--panel);box-shadow:var(--shadow);overflow:hidden;height:433px}.panel-top{position:absolute;top:0;left:0;right:0;height:62px;padding:18px 23px;display:flex;align-items:center;justify-content:space-between;z-index:2;gap:12px}.section-label{font-size:9px;letter-spacing:1.6px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:9px;white-space:nowrap}.section-label .num{font-size:9px;font-weight:450;letter-spacing:0;color:var(--muted2);padding-right:4px}.segment{display:flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:8px;padding:3px;background:#00000016}.segment button{font-size:10px;color:var(--muted);padding:5px 10px;border-radius:5px;transition:.18s}.segment button.selected{background:#ffffff0b;color:var(--text);box-shadow:0 1px 4px #0001}.segment button:hover{color:var(--text)}.source-field{position:absolute;inset:64px 22px 55px;display:flex;align-items:center;justify-content:center}.source-backing{position:relative;width:272px;height:272px;flex:none;background-color:#222720;background-image:linear-gradient(45deg,#ffffff06 25%,transparent 25%);background-image:conic-gradient(#ffffff07 25%,transparent 0 50%,#ffffff07 0 75%,transparent 0);background-size:17px 17px;outline:1px solid #ffffff08;border-radius:2px;box-shadow:0 12px 55px #0002;transition:transform .2s}.source-backing:before,.source-backing:after{content:'';pointer-events:none;position:absolute;inset:-8px;border:1px solid #ffffff08;border-radius:3px}.source-backing:after{inset:-17px;border-color:#ffffff03}.source-art{width:100%;height:100%;position:relative;z-index:1}.source-art>svg{width:100%;height:100%;image-rendering:pixelated}.source-backing.portrait{background-size:17px 17px}.source-backing.portrait .source-art{width:136px;height:272px;margin:auto;filter:drop-shadow(0 6px 6px #0002)}.uv-guide{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.65}.uv-guide svg{width:100%;height:100%}.source-side-info{position:absolute;left:2px;top:48%;writing-mode:vertical-rl;font-size:8px;letter-spacing:2px;color:var(--muted2);transform:rotate(180deg)}.source-side-info.right{left:auto;right:1px;transform:none}.source-bottom{position:absolute;bottom:0;left:0;right:0;min-height:52px;display:flex;align-items:center;justify-content:space-between;padding:7px 20px;gap:8px}.asset-info{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:9px;font-variant-numeric:tabular-nums}.asset-info .pill{border:1px solid #ffffff10;padding:4px 6px;border-radius:5px;font-size:9px;font-weight:550;color:var(--text)}.asset-info .dot{width:2px;height:2px;background:var(--muted2);border-radius:50%}.source-tools{display:flex;gap:2px}.source-tools .icon-button{width:29px;min-width:29px;height:29px;border-radius:7px}.source-tools .icon{width:14px;height:14px}.preview-card{background:radial-gradient(ellipse at 55% 34%,rgba(var(--accent-rgb),.065),transparent 63%),#181c17}.preview-card:before{content:'';position:absolute;inset:0;background-image:radial-gradient(#ffffff10 .65px,transparent .65px);background-size:18px 18px;opacity:.45;pointer-events:none}.preview-card:after{content:'';position:absolute;width:230px;height:230px;border-radius:50%;background:var(--accent);filter:blur(110px);opacity:.045;left:35%;top:20%;pointer-events:none}.preview-card.overworld{background:radial-gradient(ellipse at 50% 28%,#33443666,transparent 80%),#1b241d}.preview-card.void{background:radial-gradient(ellipse at 50% 40%,rgba(var(--accent-rgb),.03),transparent 80%),#11150f}.preview-card.clean .ghost-index{opacity:0}.preview-card.clean:before{opacity:0}.preview-canvas{position:absolute;inset:28px 0 4px;width:100%;height:calc(100% - 32px);display:block;z-index:1;cursor:grab;touch-action:none;outline:0}.preview-canvas.dragging{cursor:grabbing}.live-tag{display:flex;align-items:center;gap:6px;font-size:9px;color:var(--muted);letter-spacing:.6px}.live-tag i{display:block;width:4px;height:4px;border-radius:50%;background:#a8cc84}.live-tag span{white-space:nowrap;font-size:8px;color:var(--muted2);border:1px solid var(--line);padding:3px 5px;border-radius:4px;margin-left:5px}.preview-top-tools{display:flex;gap:3px;align-items:center}.preview-top-tools .icon-button{height:28px;min-width:28px;border-radius:7px}.preview-top-tools .icon{height:15px;width:15px}.ghost-index{font-size:250px;line-height:1;position:absolute;left:18%;top:21%;font-weight:700;letter-spacing:-24px;color:rgba(var(--accent-rgb),.026);pointer-events:none;user-select:none}.view-controls{position:absolute;z-index:3;left:17px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:5px;padding:4px;border:1px solid var(--line);border-radius:11px;background:#10150e44;backdrop-filter:blur(10px)}.view-controls button{width:29px;height:29px;min-width:29px;border-radius:7px}.view-controls .icon{width:14px;height:14px}.zoom-controls{position:absolute;z-index:3;right:20px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:2px}.zoom-controls button{width:26px;min-width:26px;height:26px}.zoom-controls .icon{width:13px;height:13px}.preview-bottom{position:absolute;bottom:14px;left:23px;right:20px;display:flex;align-items:center;justify-content:space-between;z-index:3;gap:12px;pointer-events:none}.preview-bottom>*{pointer-events:auto}.orbit-hint{font-size:9px;color:var(--muted2);display:flex;align-items:center;gap:6px;user-select:none}.orbit-hint .icon{width:13px;height:13px}.environment-picker{border-radius:8px;padding:3px;background:#11160f66;border:1px solid var(--line);display:flex;gap:1px;backdrop-filter:blur(10px)}.environment-picker button{width:29px;min-width:29px;height:26px;border-radius:5px}.environment-picker .icon{width:13px;height:13px}.fallback{position:absolute;inset:70px 20px 60px;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;background:var(--panel)}.fallback svg{height:230px;width:auto;image-rendering:pixelated}.fallback p{font-size:11px;color:var(--muted);max-width:280px;text-align:center}.under-workspace{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:16px;margin-top:15px}.wardrobe{min-height:104px;padding:0 2px}.subhead{display:flex;align-items:center;justify-content:space-between;height:22px;margin:0 0 9px}.subhead .section-label{font-size:8px;letter-spacing:1.5px}.subhead .small{font-size:9px;color:var(--muted2)}.variant-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.variant{height:59px;display:flex;align-items:center;gap:10px;text-align:left;padding:9px;border:1px solid var(--line);border-radius:11px;background:var(--panel);transition:.18s;position:relative;overflow:hidden}.variant:hover{border-color:rgba(var(--accent-rgb),.26);background:var(--panel-hi)}.variant.selected{border-color:rgba(var(--accent-rgb),.6);background:rgba(var(--accent-rgb),.055)}.variant:after{content:'';position:absolute;bottom:5px;right:6px;width:3px;height:3px;border-radius:50%;background:transparent}.variant.selected:after{background:var(--accent)}.variant-preview{width:27px;height:35px;flex:none;overflow:hidden;display:flex;align-items:flex-start;justify-content:center}.variant-preview svg{width:24px;height:48px;image-rendering:pixelated}.variant strong{display:block;line-height:1.3;font-weight:500;font-size:10px;letter-spacing:-.1px}.variant small{display:block;color:var(--muted2);font-size:8px;margin-top:4px}.variant.selected small{color:rgba(var(--accent-rgb),.65)}.motion-panel{padding:0 2px;min-width:0}.motion-group{display:flex;gap:4px;padding:5px;border:1px solid var(--line);border-radius:11px;background:var(--panel);height:59px}.motion-button{display:flex;flex:1;min-width:0;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:7px;font-size:8px;color:var(--muted);transition:.18s}.motion-button .icon{width:17px;height:17px}.motion-button:hover{background:#ffffff06;color:var(--text)}.motion-button.selected{background:rgba(var(--accent-rgb),.1);color:var(--accent)}.motion-group .divider{border-left:1px solid var(--line);margin:6px 2px}.pause-button{min-width:33px;display:flex;align-items:center;justify-content:center;border-radius:7px;color:var(--muted)}.pause-button:hover{color:var(--text);background:#ffffff06}.pause-button .icon{width:14px;height:14px}.speed-control{display:flex;align-items:center;gap:8px;color:var(--muted2);font-size:9px}.speed-control input{width:67px;accent-color:var(--accent);height:3px;cursor:pointer;opacity:.7}.speed-control output{width:23px;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.roster-section{margin-top:22px}.roster-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px;gap:16px}.roster-title{font-size:12px;font-weight:500;display:flex;align-items:center;gap:9px}.count-badge{font-size:9px;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:3px 5px;min-width:23px;text-align:center}.roster-actions{display:flex;align-items:center;gap:12px}.search-box{display:flex;align-items:center;gap:7px;color:var(--muted2)}.search-box .icon{width:13px;height:13px}.search-box input{background:transparent;color:var(--text);border:0;width:138px;outline:0;font-size:10px}.search-box input::placeholder{color:var(--muted2)}.roster-scroll-buttons{display:flex;gap:4px}.roster-scroll-buttons .icon-button{width:25px;min-width:25px;height:25px;border:1px solid var(--line);border-radius:7px}.roster-scroll-buttons .icon{width:12px;height:12px}.roster{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(95px,1fr);gap:8px;overflow-x:auto;overflow-y:hidden;padding:2px 1px 9px;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#ffffff13 transparent}.roster::-webkit-scrollbar{height:3px}.roster::-webkit-scrollbar-thumb{background:#ffffff13;border-radius:5px}.roster-card{position:relative;height:91px;border:1px solid var(--line);background:var(--panel);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;transition:.18s;overflow:hidden}.roster-card:hover{background:var(--panel-hi);transform:translateY(-2px);border-color:#ffffff1a}.roster-card.selected{border-color:rgba(var(--accent-rgb),.6);background:radial-gradient(ellipse at 50% 25%,rgba(var(--accent-rgb),.11),transparent 95%),var(--panel)}.roster-card .roster-avatar{width:32px;height:32px;filter:drop-shadow(0 5px 3px #0003);transition:transform .18s}.roster-avatar svg{width:100%;height:100%;image-rendering:pixelated}.roster-card:hover .roster-avatar{transform:translateY(-2px)}.roster-card .roster-name{font-size:9px;color:var(--muted);font-weight:500}.roster-card.selected .roster-name{color:var(--text)}.roster-card.selected:after{content:'';position:absolute;top:7px;right:7px;width:3px;height:3px;background:var(--accent);border-radius:50%}.roster-number{position:absolute;left:8px;top:7px;color:var(--muted2);font-size:7px;letter-spacing:.4px}.no-results{color:var(--muted);font-size:12px;padding:28px;width:300px}.footer{display:flex;justify-content:space-between;align-items:center;gap:15px;color:var(--muted2);font-size:8px;letter-spacing:.15px;padding:15px 2px 0}.footer-left{display:flex;gap:8px;align-items:center}.footer-left i{width:4px;height:4px;background:#718460;border-radius:50%}.footer button{color:var(--muted2);font-size:8px;padding:0}.footer button:hover{color:var(--text)}.key-hints{display:flex;gap:12px;align-items:center}.key-hints kbd{font:8px Studio,monospace;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:1px 3px;margin-right:3px}.modal-overlay{position:fixed;z-index:80;inset:0;background:#050804b8;backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:center;padding:25px}.modal{width:760px;max-height:86vh;overflow:auto;border:1px solid #ffffff14;background:var(--panel);border-radius:22px;box-shadow:0 25px 100px #0007}.modal-header{position:sticky;top:0;background:var(--panel);padding:22px 25px 17px;border-bottom:1px solid var(--line);z-index:2;display:flex;align-items:center;gap:13px}.modal-header>.icon{color:var(--accent);width:18px;height:18px}.modal-header input{border:0;outline:0;background:transparent;color:var(--text);font-size:16px;flex:1;min-width:0}.modal-header input::placeholder{color:var(--muted2)}.modal-header .icon-button{margin-left:auto}.modal-meta{padding:17px 25px 0;display:flex;justify-content:space-between;align-items:center;color:var(--muted2);font-size:9px;letter-spacing:1px}.modal-grid{padding:17px 25px 25px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.modal-character{border:1px solid var(--line);border-radius:13px;min-height:125px;padding:13px 7px;display:flex;align-items:center;flex-direction:column;justify-content:center;gap:8px;transition:.2s}.modal-character:hover{border-color:var(--char-accent);background:#ffffff04}.modal-character.selected{border-color:var(--char-accent);background:#ffffff04}.modal-character svg{height:44px;width:44px;image-rendering:pixelated;margin-bottom:4px}.modal-character strong{font-size:10px;font-weight:550}.modal-character small{color:var(--muted2);font-size:7px;letter-spacing:.4px}.help-modal{width:460px;padding:25px}.help-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.help-top h2{font-size:18px;letter-spacing:-.5px;font-weight:550;margin:0}.help-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;font-size:11px;color:var(--muted);border-bottom:1px solid var(--line)}.help-row kbd{font-size:10px;border:1px solid #ffffff12;padding:4px 7px;border-radius:5px;color:var(--text)}.help-note{font-size:10px;color:var(--muted2);line-height:1.8;margin:19px 0 0}.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,15px);z-index:100;display:flex;align-items:center;gap:10px;color:var(--text);background:#2a3025;border:1px solid #ffffff15;box-shadow:0 10px 40px #0005;border-radius:12px;padding:13px 19px;font-size:12px;opacity:0;pointer-events:none;transition:.22s;max-width:90vw;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}.toast .icon{color:var(--accent);height:16px;width:16px}.preview-card.expanded,.preview-card:fullscreen{width:100vw;height:100vh;border-radius:0;background:radial-gradient(ellipse at 50% 40%,rgba(var(--accent-rgb),.06),transparent 70%),#171c15}.preview-card:fullscreen .preview-canvas{inset:0;width:100%;height:100%}.preview-card:fullscreen .panel-top{height:75px;padding:20px 30px}.preview-card:fullscreen .preview-bottom{bottom:26px}.preview-card:fullscreen .ghost-index{top:20%;left:28%;font-size:55vh}
+.preview-card.expanded{position:fixed;inset:0;z-index:75}.preview-card.expanded .preview-canvas{inset:0;width:100%;height:100%}.preview-card.expanded .preview-bottom{bottom:26px}.preview-card.expanded .panel-top{height:75px;padding:20px 30px}
+body.light{color-scheme:light;--bg:#eff0e9;--panel:#f7f8f2;--panel-hi:#e5e9de;--line:#18221410;--text:#273022;--muted:#77816e;--muted2:#9aa28f;--shadow:0 12px 38px #20281205}body.light .preview-card{background:radial-gradient(ellipse at 52% 36%,rgba(var(--accent-rgb),.09),transparent 65%),#e7ebdf}body.light .source-backing{background-color:#e0e5d8;background-image:conic-gradient(#ffffff45 25%,transparent 0 50%,#ffffff45 0 75%,transparent 0)}body.light .export-menu,body.light .toast{background:#f8faf1;border-color:#20301519}body.light .segment{background:#1d2b0a05}body.light .segment button.selected{background:#fff9}body.light .preview-bottom .environment-picker,body.light .view-controls{background:#f4f7ed90}body.light .preview-card:before{background-image:radial-gradient(#22301825 .65px,transparent .65px)}body.light .modal-overlay{background:#22291866}body.light .modal-character:hover{background:#1e2b0b04}body.light .source-backing:before{border-color:#20301510}body.light .primary{color:#222719}
+@media(min-width:1600px){.app{padding-left:44px;padding-right:44px}.view-card{height:490px}.source-backing{width:304px;height:304px;background-size:19px 19px}.source-backing.portrait .source-art{width:152px;height:304px}.roster-card{height:104px}.roster{grid-auto-columns:minmax(104px,1fr)}}
+@media(max-width:1100px){.app{padding:0 24px 20px}.edition{display:none}.collection-stat{gap:14px}.stat+.stat{padding-left:14px}.source-backing{width:240px;height:240px;background-size:15px 15px}.source-backing.portrait .source-art{width:120px;height:240px}.view-card{height:398px}.panel-top{padding:16px 17px}.section-label{font-size:8px;letter-spacing:1.2px}.variant{gap:6px;padding:7px}.variant-preview{width:20px}.variant strong{font-size:9px}.variant small{font-size:7px}.preview-bottom{left:18px;right:16px}.orbit-hint{font-size:8px}.workspace,.under-workspace{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)}.source-side-info{display:none}.live-tag{display:none}.roster{grid-auto-columns:88px}.motion-button{font-size:7px}.motion-group{gap:1px}}
+@media(max-width:850px){.app{padding:0 18px 22px}.topbar{height:72px}.collection-stat{display:none}.character-name{font-size:30px}.selection-bar{padding:23px 0 20px}.workspace,.under-workspace{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:12px}.view-card{height:355px;border-radius:17px}.source-backing{width:208px;height:208px;background-size:13px 13px}.source-backing.portrait .source-art{width:104px;height:208px}.panel-top{height:54px;padding:13px 13px}.section-label .num{display:none}.segment button{padding:5px 6px;font-size:9px}.source-field{inset:55px 14px 51px}.source-bottom{padding:7px 12px}.asset-info{gap:5px;font-size:8px}.asset-info .pill{font-size:8px}.preview-top-tools{gap:0}.preview-top-tools .icon-button{width:24px;min-width:24px;height:24px}.preview-top-tools .icon{width:13px;height:13px}.view-controls{left:10px;padding:2px}.view-controls button{width:23px;min-width:23px;height:24px}.zoom-controls{right:11px}.orbit-hint{display:none}.preview-bottom{justify-content:flex-end;bottom:11px}.ghost-index{font-size:190px}.variant{height:62px;flex-direction:column;gap:4px;padding:7px 3px}.variant-preview{width:20px;height:20px}.variant-preview svg{width:16px;height:32px}.variant strong{font-size:8px;text-align:center}.variant small{display:none}.motion-group{height:62px;padding:4px}.motion-button{gap:8px;font-size:7px}.motion-button .icon{width:15px;height:15px}.pause-button{min-width:22px}.motion-group .divider{margin:6px 0}.footer .key-hints{display:none}.header-actions .soft{font-size:0;gap:0;border:0;padding:9px}.header-actions .soft kbd{display:none}.header-actions .soft .icon{height:17px;width:17px}.primary{font-size:11px;padding:10px 12px}.header-actions{gap:4px}.subhead .small{font-size:8px}.speed-control{gap:5px}.speed-control input{width:46px}}
+@media(max-width:630px){.app{padding:0 14px 19px}.topbar{height:65px}.brand-name{font-size:14px}.brand-symbol{width:24px;height:24px;gap:2px}.brand{gap:9px}.brand-name span{margin-left:2px}.header-actions #themeBtn{display:none}.primary{gap:6px;font-size:10px;padding:10px}.primary .icon{height:14px;width:14px}.header-actions .soft{padding:5px}.character-name{font-size:28px;letter-spacing:-1px}.character-heading{gap:13px}.character-counter{font-size:9px}.heading-nav .icon-button{height:30px;min-width:30px}.selection-bar{padding:21px 0 18px}.workspace{grid-template-columns:1fr;gap:12px}.source-card{height:312px;order:2}.preview-card{height:382px;order:1}.source-field{inset:46px 15px 44px}.source-backing{width:208px;height:208px}.source-backing.portrait .source-art{height:208px;width:104px}.section-label{font-size:9px}.section-label .num{display:inline}.source-side-info{display:block;left:20px}.source-side-info.right{right:20px}.panel-top{padding:15px 19px}.source-bottom{padding:7px 18px}.asset-info{font-size:9px;gap:7px}.preview-top-tools .icon-button{width:28px;min-width:28px;height:28px}.preview-top-tools .icon{width:15px;height:15px}.preview-bottom{right:18px;left:18px;justify-content:space-between}.orbit-hint{display:flex;font-size:8px}.view-controls{left:15px}.zoom-controls{right:17px}.view-controls button{width:25px;min-width:25px;height:26px}.under-workspace{grid-template-columns:1fr;gap:13px;margin-top:18px}.wardrobe{min-height:0}.variant{flex-direction:row;height:59px;gap:9px;padding:9px}.variant-preview{width:23px;height:32px}.variant-preview svg{width:22px;height:44px}.variant strong{font-size:10px;text-align:left}.variant small{display:block;font-size:8px}.motion-panel{order:-1}.motion-group{height:60px;padding:5px}.motion-button{font-size:8px;gap:6px}.motion-button .icon{width:17px;height:17px}.pause-button{min-width:29px}.subhead{margin-bottom:7px}.speed-control input{width:70px}.roster-section{margin-top:22px}.roster-top{gap:10px}.roster-title{font-size:11px}.roster-actions{gap:8px}.search-box input{width:102px;font-size:9px}.roster-scroll-buttons{display:none}.roster{grid-auto-columns:83px}.roster-card{height:89px}.modal-overlay{padding:12px}.modal{max-height:90vh;border-radius:17px}.modal-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;padding:15px}.modal-header{padding:14px 16px}.modal-header input{font-size:13px}.modal-character{min-height:111px;padding:11px 4px}.modal-character svg{width:34px;height:34px}.modal-character strong{font-size:9px}.modal-character small{font-size:6px}.modal-meta{padding:14px 16px 0;font-size:8px}.footer{font-size:7px;padding-top:13px}.footer button{font-size:7px}.export-menu{width:245px}.live-tag{display:flex}.ghost-index{left:24%;top:20%}.source-tools .icon-button{width:30px;min-width:30px;height:30px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.roster-card:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+<header class="topbar">
+ <div class="brand"><div class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="brand-name">SKIN<span>STUDIO</span></div></div>
+ <div class="edition">ANIME COLLECTION / VOL. 01</div>
+ <div class="header-actions">
+  <button class="soft" id="browseBtn" title="All characters (Ctrl K)"><span data-icon="search"></span>All characters<kbd>⌘ K</kbd></button>
+  <button class="icon-button" id="themeBtn" title="Switch light / dark" aria-label="Switch color theme"><span data-icon="sun"></span></button>
+  <div class="export-wrap"><button class="primary" id="exportBtn" aria-expanded="false" aria-haspopup="menu"><span data-icon="download"></span>Export skin<span data-icon="chevronDown"></span></button>
+   <div class="export-menu" id="exportMenu" role="menu" hidden>
+    <button role="menuitem" data-export="png"><span data-icon="image"></span><span><strong>Minecraft skin</strong><small>Ready to import · Classic model</small></span><span class="tag">PNG</span></button>
+    <button role="menuitem" data-export="svg"><span data-icon="code"></span><span><strong>Transparent atlas</strong><small>Editable, pixel-perfect vector source</small></span><span class="tag">SVG</span></button>
+    <button role="menuitem" data-export="front"><span data-icon="person"></span><span><strong>Character sprite</strong><small>Transparent front-view artwork</small></span><span class="tag">SVG</span></button>
+    <button role="menuitem" data-export="snapshot"><span data-icon="camera"></span><span><strong>3D snapshot</strong><small>Current pose and camera angle</small></span><span class="tag">PNG</span></button>
+    <hr><button role="menuitem" data-export="pack"><span data-icon="package"></span><span><strong>The entire collection</strong><small>All 60 skins · PNG + SVG</small></span><span class="tag">ZIP</span></button>
+   </div>
+  </div>
+ </div>
+</header>
+<section class="selection-bar">
+ <div class="character-heading"><div><div class="eyebrow"><span class="dash"></span><span id="seriesLabel">NARUTO</span></div><h1 class="character-name" id="characterName">Naruto Uzumaki</h1></div></div>
+ <div class="collection-stat"><div class="stat"><strong>20</strong>characters</div><div class="stat"><strong>60</strong>looks</div></div>
+ <div class="heading-nav"><span class="character-counter" id="characterCounter"><b>01</b> / 20</span><span style="width:8px"></span><button class="icon-button" id="prevCharacter" title="Previous character (←)" aria-label="Previous character"><span data-icon="chevronLeft"></span></button><button class="icon-button" id="nextCharacter" title="Next character (→)" aria-label="Next character"><span data-icon="chevronRight"></span></button></div>
+</section>
+<main>
+ <div class="workspace">
+  <section class="view-card source-card" aria-label="Transparent SVG skin source">
+   <div class="panel-top"><div class="section-label"><span class="num">01</span>SOURCE ASSET</div><div class="segment" id="sourceTabs" role="tablist" aria-label="Source view"><button class="selected" data-source="atlas" role="tab" aria-selected="true">Atlas</button><button data-source="front" role="tab" aria-selected="false">Character</button></div></div>
+   <div class="source-field"><span class="source-side-info">TRANSPARENT / VECTOR</span><div class="source-backing" id="sourceBacking"><div class="source-art" id="sourceArt"></div><div class="uv-guide" id="uvGuide" hidden></div></div><span class="source-side-info right" id="sourceDimension">64 × 64 PIXELS</span></div>
+   <div class="source-bottom"><div class="asset-info"><span class="pill">SVG</span><span id="sourceMeta">64 × 64</span><span class="dot"></span><span id="pixelInfo">RGBA</span></div><div class="source-tools"><button class="icon-button" id="flipSource" hidden title="Front / back view" aria-label="Flip character sprite"><span data-icon="rotate"></span></button><button class="icon-button" id="guideBtn" title="Show UV guides" aria-label="Show UV guides" aria-pressed="false"><span data-icon="grid"></span></button><button class="icon-button" id="sourceDownload" title="Export transparent SVG" aria-label="Export transparent SVG"><span data-icon="download"></span></button></div></div>
+  </section>
+  <section class="view-card preview-card" id="previewCard" aria-label="Interactive Minecraft skin model">
+   <div class="ghost-index" id="ghostIndex" aria-hidden="true">01</div>
+   <canvas class="preview-canvas" id="previewCanvas" aria-label="Interactive Minecraft model. Drag to rotate and scroll to zoom." tabindex="0"></canvas>
+   <div class="panel-top"><div class="section-label"><span class="num">02</span>LIVE PREVIEW</div><div class="live-tag"><i></i>CLASSIC<span>4 PX</span></div><div class="preview-top-tools"><button class="icon-button" id="rotateBtn" title="Auto-rotate (R)" aria-label="Toggle auto-rotation" aria-pressed="false"><span data-icon="rotate"></span></button><button class="icon-button active" id="layersBtn" title="Outer skin layers (L)" aria-label="Toggle outer skin layers" aria-pressed="true"><span data-icon="layers"></span></button><button class="icon-button" id="resetBtn" title="Reset camera (0)" aria-label="Reset camera"><span data-icon="reset"></span></button><button class="icon-button" id="fullscreenBtn" title="Fullscreen preview (F)" aria-label="Fullscreen preview"><span data-icon="maximize"></span></button></div></div>
+   <div class="view-controls"><button class="icon-button" data-view="front" title="Front view" aria-label="Front view"><span data-icon="front"></span></button><button class="icon-button" data-view="back" title="Back view" aria-label="Back view"><span data-icon="back"></span></button><button class="icon-button" data-view="iso" title="Isometric view" aria-label="Isometric view"><span data-icon="cube"></span></button></div>
+   <div class="zoom-controls"><button class="icon-button" id="zoomIn" title="Zoom in" aria-label="Zoom in"><span data-icon="plus"></span></button><button class="icon-button" id="zoomOut" title="Zoom out" aria-label="Zoom out"><span data-icon="minus"></span></button></div>
+   <div class="preview-bottom"><span class="orbit-hint"><span data-icon="mouse"></span>Drag to rotate <span style="opacity:.4">/</span> Scroll to zoom</span><div class="environment-picker" aria-label="Preview environment"><button class="icon-button active" data-env="studio" title="Studio" aria-label="Studio environment" aria-pressed="true"><span data-icon="disc"></span></button><button class="icon-button" data-env="overworld" title="Overworld" aria-label="Overworld environment" aria-pressed="false"><span data-icon="grass"></span></button><button class="icon-button" data-env="void" title="Void" aria-label="Void environment" aria-pressed="false"><span data-icon="stars"></span></button><button class="icon-button active" id="gridBtn" title="Toggle stage grid" aria-label="Toggle stage grid" aria-pressed="true"><span data-icon="grid"></span></button></div></div>
+   <div class="fallback" id="fallback" hidden></div>
+  </section>
+ </div>
+ <div class="under-workspace">
+  <section class="wardrobe" aria-label="Character outfits"><div class="subhead"><div class="section-label">WARDROBE</div><span class="small">3 looks · <span id="wardrobeIndex">01 / 03</span></span></div><div class="variant-list" id="variantList" role="tablist" aria-label="Outfit variants"></div></section>
+  <section class="motion-panel" aria-label="Minecraft animation controls"><div class="subhead"><div class="section-label">MOTION</div><div class="speed-control"><label for="speedRange">Speed</label><input type="range" min="25" max="200" value="100" step="25" id="speedRange" aria-label="Animation speed"><output id="speedOutput">1.0×</output></div></div><div class="motion-group" id="motionGroup"><button class="pause-button" id="pauseBtn" title="Pause / play (Space)" aria-label="Pause animation" aria-pressed="false"><span data-icon="pause"></span></button><span class="divider"></span></div></section>
+ </div>
+ <section class="roster-section" aria-label="Character collection"><div class="roster-top"><div class="roster-title">The collection <span class="count-badge" id="rosterCount">20</span></div><div class="roster-actions"><label class="search-box"><span data-icon="search"></span><input type="search" placeholder="Find a character..." id="rosterSearch" aria-label="Filter characters by name or series" autocomplete="off" spellcheck="false"></label><div class="roster-scroll-buttons"><button class="icon-button" id="rosterPrev" title="Scroll collection left" aria-label="Scroll collection left"><span data-icon="chevronLeft"></span></button><button class="icon-button" id="rosterNext" title="Scroll collection right" aria-label="Scroll collection right"><span data-icon="chevronRight"></span></button></div></div></div><div class="roster" id="roster" role="listbox" aria-label="Choose an anime character"></div></section>
+</main>
+<footer class="footer"><div class="footer-left"><i></i>HANDCRAFTED PIXELS <span style="opacity:.4">/</span> 100% OFFLINE</div><div class="key-hints"><span><kbd>← →</kbd>Character</span><span><kbd>[ ]</kbd>Outfit</span><span><kbd>Space</kbd>Play / pause</span></div><button id="helpBtn">Fan-made collection · Shortcuts & info ↗</button></footer>
+</div>
+<div class="modal-overlay" id="browseModal" role="dialog" aria-modal="true" aria-label="Browse all characters" hidden><div class="modal"><div class="modal-header"><span data-icon="search"></span><input type="search" id="modalSearch" placeholder="A character. An anime. Your next skin." aria-label="Search all characters" autocomplete="off"><button class="icon-button" id="closeBrowse" aria-label="Close character browser"><span data-icon="close"></span></button></div><div class="modal-meta"><span>THE COMPLETE COLLECTION</span><span id="modalCount">20 CHARACTERS / 60 LOOKS</span></div><div class="modal-grid" id="modalGrid"></div></div></div>
+<div class="modal-overlay" id="helpModal" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts and information" hidden><div class="modal help-modal"><div class="help-top"><h2>A little help.</h2><button class="icon-button" id="closeHelp" aria-label="Close help"><span data-icon="close"></span></button></div><div class="help-row"><span>Switch character</span><kbd>← / →</kbd></div><div class="help-row"><span>Switch outfit</span><kbd>[ / ]</kbd></div><div class="help-row"><span>Select animation</span><kbd>1 – 8</kbd></div><div class="help-row"><span>Play / pause</span><kbd>Space</kbd></div><div class="help-row"><span>Rotate / layers / fullscreen</span><kbd>R / L / F</kbd></div><div class="help-row"><span>Reset camera</span><kbd>0 / double-click</kbd></div><div class="help-row"><span>Find a character</span><kbd>Ctrl / ⌘ K</kbd></div><p class="help-note">Import the 64 × 64 PNG using Minecraft’s <strong>Classic</strong> model. SVG is the editable vector source. The checkerboard is only a preview — it is not part of the export.<br><br>All faces are painted, including the back. Hair, collars and coats use standard skin layers, not custom geometry. The viewer uses Minecraft-style rigid-body animation.<br><br>Original fan-made pixel interpretations. Not affiliated with Mojang, Microsoft or the owners of the characters. No external files, account or connection required.</p></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"><span data-icon="check"></span><span id="toastText"></span></div>
+<script>
+/* Anime Skin Studio — original, code-drawn fan-art textures.
+   Standard 64 × 64 Classic / Steve UV layout; opaque base faces, transparent outer layers.
+   No downloaded character art or pre-existing skins. */
+'use strict';
+const CHARACTERS = [
+ {id:'naruto',name:'Naruto Uzumaki',short:'Naruto',series:'NARUTO',accent:'#f7a84c',hair:'#efbc3b',skin:'#efbb91',eye:'#409cda',variants:['Shippuden','Sage Mode','Hokage']},
+ {id:'sasuke',name:'Sasuke Uchiha',short:'Sasuke',series:'NARUTO',accent:'#aaa0ee',hair:'#202637',skin:'#e8c8b0',eye:'#47424e',variants:['Hebi','Akatsuki','Final Battle']},
+ {id:'kakashi',name:'Kakashi Hatake',short:'Kakashi',series:'NARUTO',accent:'#b6c9c2',hair:'#c5ced3',skin:'#dfb799',eye:'#343b43',variants:['Jonin','ANBU','Sixth Hokage']},
+ {id:'itachi',name:'Itachi Uchiha',short:'Itachi',series:'NARUTO',accent:'#e47578',hair:'#272631',skin:'#e1c0af',eye:'#c14950',variants:['Akatsuki','ANBU','Young Uchiha']},
+ {id:'luffy',name:'Monkey D. Luffy',short:'Luffy',series:'ONE PIECE',accent:'#f5bd60',hair:'#26252b',skin:'#e8b485',eye:'#373039',variants:['East Blue','Onigashima','Gear 5']},
+ {id:'zoro',name:'Roronoa Zoro',short:'Zoro',series:'ONE PIECE',accent:'#91c986',hair:'#649854',skin:'#d8ab85',eye:'#33362f',variants:['Wano','Dressrosa','East Blue']},
+ {id:'goku',name:'Son Goku',short:'Goku',series:'DRAGON BALL',accent:'#f49d61',hair:'#252632',skin:'#e2ac7e',eye:'#292f3b',variants:['Turtle Gi','Super Saiyan','Ultra Instinct']},
+ {id:'vegeta',name:'Vegeta',short:'Vegeta',series:'DRAGON BALL',accent:'#80aaf0',hair:'#222432',skin:'#ddae87',eye:'#283145',variants:['Battle Armor','Majin','Saiyan Prince']},
+ {id:'tanjiro',name:'Tanjiro Kamado',short:'Tanjiro',series:'DEMON SLAYER',accent:'#76c4a3',hair:'#492b32',skin:'#eac3aa',eye:'#8a444a',variants:['Checkered Haori','Final Selection','Training']},
+ {id:'nezuko',name:'Nezuko Kamado',short:'Nezuko',series:'DEMON SLAYER',accent:'#eda4b7',hair:'#2e292e',skin:'#f0ccba',eye:'#df839c',variants:['Pink Kimono','Awakened','School Uniform']},
+ {id:'zenitsu',name:'Zenitsu Agatsuma',short:'Zenitsu',series:'DEMON SLAYER',accent:'#edc76c',hair:'#edbb55',skin:'#edc4a4',eye:'#ab7333',variants:['Thunder Haori','Corps Uniform','School Uniform']},
+ {id:'gojo',name:'Satoru Gojo',short:'Gojo',series:'JUJUTSU KAISEN',accent:'#8fceee',hair:'#e1e6ed',skin:'#edcfc0',eye:'#6ad4f4',variants:['Blindfold','Shibuya','Student']},
+ {id:'yuji',name:'Yuji Itadori',short:'Yuji',series:'JUJUTSU KAISEN',accent:'#ee9895',hair:'#cc8883',skin:'#e6bd9e',eye:'#9b624c',variants:['Jujutsu Uniform','Training','School Days']},
+ {id:'sukuna',name:'Ryomen Sukuna',short:'Sukuna',series:'JUJUTSU KAISEN',accent:'#d87f91',hair:'#d29a92',skin:'#e9c2a4',eye:'#c74352',variants:['Cursed Vessel','White Kimono','Domain']},
+ {id:'ichigo',name:'Ichigo Kurosaki',short:'Ichigo',series:'BLEACH',accent:'#eea063',hair:'#d97c38',skin:'#e6bc9a',eye:'#88502d',variants:['Shikai','Bankai','Hollow Mask']},
+ {id:'eren',name:'Eren Yeager',short:'Eren',series:'ATTACK ON TITAN',accent:'#a9bd84',hair:'#49372f',skin:'#dfbd9e',eye:'#609987',variants:['Scout Regiment','Final Season','Training']},
+ {id:'levi',name:'Levi Ackerman',short:'Levi',series:'ATTACK ON TITAN',accent:'#a2b8a1',hair:'#292932',skin:'#e1c5b1',eye:'#8b979d',variants:['Scout Regiment','Captain','Underground']},
+ {id:'deku',name:'Izuku Midoriya',short:'Deku',series:'MY HERO ACADEMIA',accent:'#72c9ac',hair:'#284d43',skin:'#eac4a4',eye:'#65a182',variants:['Hero Costume','U.A. Uniform','Vigilante']},
+ {id:'saitama',name:'Saitama',short:'Saitama',series:'ONE PUNCH MAN',accent:'#e5ce76',hair:null,skin:'#ebc19e',eye:'#4b413e',variants:['Hero Suit','Training','Casual']},
+ {id:'killua',name:'Killua Zoldyck',short:'Killua',series:'HUNTER × HUNTER',accent:'#b2bdf3',hair:'#dce1ec',skin:'#e9c8b1',eye:'#668cca',variants:['Classic','Godspeed','Hunter Exam']}
+];
+const PARTS={
+ head:{w:8,h:8,d:8,base:[0,0],outer:[32,0]},
+ body:{w:8,h:12,d:4,base:[16,16],outer:[16,32]},
+ ra:{w:4,h:12,d:4,base:[40,16],outer:[40,32]},
+ la:{w:4,h:12,d:4,base:[32,48],outer:[48,48]},
+ rl:{w:4,h:12,d:4,base:[0,16],outer:[0,32]},
+ ll:{w:4,h:12,d:4,base:[16,48],outer:[0,48]}
+};
+function uvRect(part,face,outer=false){
+ const p=PARTS[part], [x,y]=outer?p.outer:p.base, {w,h,d}=p;
+ const f={top:[d,0,w,d],bottom:[d+w,0,w,d],right:[0,d,d,h],front:[d,d,w,h],left:[d+w,d,d,h],back:[2*d+w,d,w,h]}[face];
+ return [x+f[0],y+f[1],f[2],f[3]];
+}
+const FACES=['front','back','left','right','top','bottom'];
+const skinCache=new Map();
+function tint(hex,amount=0){
+ if(!hex)return null;
+ const s=hex.replace('#','');let n=parseInt(s,16);return '#'+[n>>16&255,n>>8&255,n&255].map(v=>Math.max(0,Math.min(255,Math.round(v+amount))).toString(16).padStart(2,'0')).join('');
+}
+function createSkin(character,variant=0){
+ const c=typeof character==='string'?CHARACTERS.find(c=>c.id===character):character;
+ if(!c)throw new Error('Unknown character');
+ const v=Math.max(0,Math.min(2,variant|0)),key=c.id+'-'+v;
+ if(skinCache.has(key))return skinCache.get(key);
+ const px=new Array(4096).fill(null), S=c.skin, D=tint(S,-23), H=tint(S,10);
+ let hair=c.hair,eye=c.eye;
+ if(c.id==='goku'&&v===1){hair='#edcf6b';eye='#5aaea9'}
+ if(c.id==='goku'&&v===2){hair='#d4dceb';eye='#909fb9'}
+ if(c.id==='luffy'&&v===2){hair='#eeedf1';eye='#a55272'}
+ if(c.id==='eren'&&v===1)hair='#302b2b';
+ if(c.id==='killua'&&v===1){hair='#e0eafa';eye='#6de1ed'}
+ function put(x,y,col){if(x>=0&&x<64&&y>=0&&y<64)px[y*64+x]=col}
+ function paint(p,f,x,y,w,h,col,o=false){let r=uvRect(p,f,o);for(let j=Math.max(0,y);j<Math.min(r[3],y+h);j++)for(let i=Math.max(0,x);i<Math.min(r[2],x+w);i++)put(r[0]+i,r[1]+j,col)}
+ function dot(p,f,x,y,col,o=false){paint(p,f,x,y,1,1,col,o)}
+ function fill(p,f,col,o=false){let r=uvRect(p,f,o);paint(p,f,0,0,r[2],r[3],col,o)}
+ function shade(p,f,col,o=false){
+  const r=uvRect(p,f,o),w=r[2],h=r[3];
+  for(let y=0;y<h;y++)for(let x=0;x<w;x++){
+   let a=0;if(x===0||x===w-1)a-=8;if(y===h-1)a-=9;if(y===0)a+=5;
+   if(x===1&&y>0&&y<h-2)a+=5;
+   // Sparse, intentional seams and highlights, rather than random pixel noise.
+   if((x*7+y*3)%19===0)a+=4;
+   dot(p,f,x,y,tint(col,a),o);
+  }
+ }
+ function all(p,col){FACES.forEach(f=>shade(p,f,col))}
+ function band(p,y,h,col,o=false){for(let f of ['front','back','left','right'])paint(p,f,0,y,PARTS[p].w+PARTS[p].d,h,col,o)}
+ function stamp(p,f,x,y,rows,palette,o=false){rows.forEach((row,j)=>[...row].forEach((k,i)=>{if(palette[k])dot(p,f,x+i,y+j,palette[k],o)}))}
+ let shirt='#273242',pants='#293242',sleeve=null,boots='#323643',belt=null,neck=true,short=false,gloves=null;
+ switch(c.id){
+ case'naruto':shirt=v===2?'#f0e7d8':'#ed843c';pants=v===2?'#2e3440':'#e87b35';sleeve=v===0?'#303441':v===1?'#99433c':'#f0e7d8';boots='#303544';belt=v===2?'#382f2c':null;break;
+ case'sasuke':shirt=v===0?'#e1dede':v===1?'#28252e':'#39394a';pants='#383645';sleeve=shirt;boots='#424152';belt=v===0?'#9c83ba':'#615373';break;
+ case'kakashi':shirt=v===0?'#6e8063':v===1?'#a7adbb':'#eee7d8';pants='#343e50';sleeve=v===2?'#ede5d6':'#3b455b';boots='#2d3545';gloves='#3b4556';break;
+ case'itachi':shirt=v===0?'#29252e':v===1?'#9d9fab':'#354054';pants=v===0?'#302730':'#3b4054';sleeve=v===1?S:shirt;boots='#343441';belt=v===1?'#705885':null;break;
+ case'luffy':shirt=v===2?'#f2eced':'#bd4944';pants=v===0?'#427cad':v===1?'#795095':'#e7e5e8';sleeve=S;boots='#9d783e';short=true;neck=false;belt=v===0?null:'#eec35c';break;
+ case'zoro':shirt=v===0?'#4b785b':v===1?'#333c42':'#e7e3d6';pants=v===0?'#45694c':'#39473e';sleeve=v===1?shirt:v===0?'#4b785b':S;boots='#373c32';belt=v===0?'#aa4644':'#679855';neck=v!==0;break;
+ case'goku':shirt=v===2?S:'#e58b39';pants='#df8a3b';sleeve=S;boots='#3d4e79';belt='#3c5985';neck=false;break;
+ case'vegeta':shirt=v===1?'#293c78':'#e4e5dc';pants=v===2?'#354377':'#344e96';sleeve=v===1?S:pants;boots='#e7e5d9';gloves=v===1?'#e8e3d6':'#e7e6dc';belt=v===1?'#e3e1d5':null;break;
+ case'tanjiro':shirt=v===0?'#55a789':v===1?'#79b3c2':'#8cafc9';pants=v===2?'#7b9fba':'#333946';sleeve=shirt;boots='#e0d7c4';belt='#e2d9c9';break;
+ case'nezuko':shirt=v===2?'#eee5d9':'#d990a8';pants=v===2?'#555269':'#d59aaf';sleeve=v===2?'#eee5d9':'#473033';boots='#4b353e';belt=v===2?'#4e4760':'#aa424a';break;
+ case'zenitsu':shirt=v===0?'#e3b24b':v===1?'#34353b':'#d7b670';pants=v===2?'#6c635d':'#38363d';sleeve=shirt;boots=v===0?'#cf9944':'#4a4140';belt='#ede5d6';break;
+ case'gojo':shirt=v===2?'#303644':'#282d3e';pants=shirt;sleeve=shirt;boots='#33343a';neck=false;break;
+ case'yuji':shirt=v===0?'#29334b':v===1?'#b7bbc6':'#e4e3df';pants=v===0?'#2c3347':v===1?'#343b4b':'#373e4b';sleeve=v===2?S:shirt;boots=v===0?'#b6494c':'#9f594c';break;
+ case'sukuna':shirt=v===0?'#303247':v===1?'#e7e2dc':S;pants=v===0?'#303446':'#e6dfd4';sleeve=shirt;boots=v===0?'#a34d51':'#4b4249';belt=v===0?null:'#53424f';neck=v===0;break;
+ case'ichigo':shirt=v===0?'#32323d':'#252630';pants=shirt;sleeve=shirt;boots='#e8ddd0';belt=v===0?'#eae3d7':'#a13e48';neck=false;break;
+ case'eren':shirt=v===1?'#383839':'#a08562';pants=v===1?'#49403c':'#d8d3c2';sleeve=shirt;boots='#655044';belt='#65544b';break;
+ case'levi':shirt=v===0?'#a08360':v===1?'#647455':'#c0b8a7';pants='#d6d1c2';sleeve=v===2?'#e3dccc':shirt;boots='#5a4940';belt='#655a52';break;
+ case'deku':shirt=v===0?'#459482':v===1?'#bcc5c1':'#3d6c64';pants=v===1?'#385353':shirt;sleeve=shirt;boots=v===1?'#695048':'#b24d49';gloves=v===1?null:'#d8d4c5';belt=v===1?'#5b6560':'#bc5e4c';break;
+ case'saitama':shirt=v===0?'#e7c454':v===1?'#385184':'#c9a6b1';pants=v===0?'#dfb94a':v===1?'#334a7a':'#485873';sleeve=shirt;boots=v===0?'#b34748':'#d8d9d0';gloves=v===0?'#bd4e4c':null;belt=v===0?'#292e39':null;break;
+ case'killua':shirt=v===0?'#e4e2e2':v===1?'#a3add6':'#e2e5e6';pants=v===0?'#637799':v===1?'#5b6c93':'#6583b0';sleeve=v===0?'#465478':v===1?S:'#72689a';boots='#59648e';short=true;break;
+ }
+ // All six base faces are completely opaque, including hidden faces.
+ all('head',S);all('body',shirt);all('ra',sleeve||shirt);all('la',sleeve||shirt);all('rl',pants);all('ll',pants);
+ for(let p of ['ra','la']){
+  if(sleeve===S){for(let f of FACES)shade(p,f,S)}
+  if(!gloves){band(p,10,2,S);fill(p,'bottom',D)}
+  else {band(p,9,3,gloves);fill(p,'bottom',tint(gloves,-10))}
+  if((c.id==='luffy'||c.id==='goku'||c.id==='zoro'&&v===2)&&sleeve===S){band(p,0,3,S)}
+ }
+ for(let p of ['rl','ll']){
+  if(short){band(p,7,4,S);band(p,6,1,tint(pants,22));}
+  band(p,short?11:9,short?1:3,boots);fill(p,'bottom',tint(boots,-17));
+  for(let f of ['front','left','right'])paint(p,f,1,short?11:10,2,1,tint(boots,14));
+  if(!short){paint(p,'front',1,3,1,3,tint(pants,9));paint(p,'front',3,6,1,3,tint(pants,-10));}
+ }
+ if(neck){paint('body','front',3,0,2,2,S);dot('body','front',3,2,D);dot('body','front',4,2,D);}
+ if(belt){band('body',9,2,belt);paint('body','front',3,9,2,2,tint(belt,35));}
+ // Head foundation. Long hair and silhouettes live in the real hat layer.
+ let longHair=['sasuke','itachi','nezuko'].includes(c.id)||(c.id==='eren'&&v===1);
+ if(hair){
+  shade('head','top',hair);shade('head','back',hair);
+  for(let f of ['left','right']){
+   shade('head',f,hair);paint('head',f,2,4,4,4,S);paint('head',f,2,5,1,2,D);
+   if(longHair)paint('head',f,0,3,3,5,hair);
+   if(!longHair)paint('head','back',2,7,4,1,D);
+  }
+  let rows=['hhhhhhhh','hHhhhhHh','hh.h.hh.','h......h'];
+  if(c.id==='sasuke')rows=['hhhhhhhh','HhhHhhhh','hhhhh.hH','hhh....h','hh.....h'];
+  if(c.id==='itachi')rows=['hhhhhhhh','hHhhhhHh','hh....hh','h......h','h......h','h......h'];
+  if(c.id==='luffy')rows=['hhhhhhhh','hHhHhhHh','hhhhh.hh','h.h....h'];
+  if(c.id==='vegeta')rows=['hhhhhhhh','hh.hh.hh','h..hh..h','h......h'];
+  if(c.id==='goku')rows=['hhHhhhHh','hhhhhhhh','hhh.h.hh','h.h...hh'];
+  if(c.id==='zenitsu')rows=['hhhhhhhh','HhHHhHhh','hhhhhhhh','h.h.h.hh'];
+  if(c.id==='gojo')rows=['hhhHhhhh','hHhhhHhH','hhh.hh.h','h......h'];
+  if(c.id==='levi')rows=['hhhhhhhh','hhhHHhhh','hhhh.hhh','hhh...hh','h......h'];
+  if(c.id==='eren')rows=v===1?['hhhhhhhh','hhhHHhhh','hh....hh','h......h','h......h']:['hhhhhhhh','hhHhhhHh','hh.hhhhh','h...h..h'];
+  if(c.id==='nezuko')rows=['hhhhhhhh','hHHhhhhh','hhh...hh','hh.....h','h......h','h......h'];
+  if(c.id==='deku')rows=['hHhhhHhh','hhhHhhhh','hhhh.hh.','h.hh...h'];
+  if(c.id==='killua')rows=['hhHhhhHh','hHhhhHhh','hhh.hh.h','h.h...hh'];
+  stamp('head','front',0,0,rows,{h:hair,H:tint(hair,18)});
+  // An offset outer shell gives the hair and fringe actual Minecraft layer depth.
+  shade('head','top',tint(hair,6),true);
+  for(let f of ['back','left','right']){
+   for(let y=0;y<(longHair?8:4);y++)for(let x=0;x<8;x++){
+    if(y===3&&!longHair&&(x+y)%3===0)continue;
+    dot('head',f,x,y,tint(hair,(x%3===0?13:0)-(y>4?9:0)),true);
+   }
+  }
+  stamp('head','front',0,0,rows.slice(0,3),{h:hair,H:tint(hair,19)},true);
+ }else{
+  shade('head','top',H);paint('head','top',2,2,3,2,tint(S,19));
+  paint('head','front',1,1,3,1,H);paint('head','back',0,6,8,2,D);
+ }
+ // Eyes, ears, cheeks and a one-pixel smile. Kept deliberately pixel-perfect.
+ paint('head','front',1,4,2,1,'#f0e9e0');paint('head','front',5,4,2,1,'#f0e9e0');
+ dot('head','front',2,4,eye);dot('head','front',5,4,eye);
+ dot('head','front',0,5,D);dot('head','front',7,5,D);
+ paint('head','front',3,7,2,1,tint(S,-28));
+ dot('head','front',4,5,tint(S,-12));
+ function headband(color='#3b4255',slash=false){
+  for(let f of ['front','left','right','back'])paint('head',f,0,2,8,2,color);
+  paint('head','front',1,2,6,2,'#bdc4c6');paint('head','front',2,2,4,1,'#d7d9d1');
+  dot('head','front',3,3,'#58616a');dot('head','front',4,2,'#657075');
+  if(slash)paint('head','front',1,3,6,1,'#555763');
+  // Remove shell pixels that would otherwise conceal the headband.
+  paint('head','front',0,2,8,2,null,true);
+  for(let f of ['left','right','back'])paint('head',f,0,2,8,2,color,true);
+ }
+ function vneck(color,depth=5){for(let y=0;y<depth;y++){let x=Math.min(3,Math.floor(y/1.5));dot('body','front',x,y,color);dot('body','front',7-x,y,color)}}
+ function checker(p,f,a,b,size=2,o=false){let r=uvRect(p,f,o);for(let y=0;y<r[3];y++)for(let x=0;x<r[2];x++)dot(p,f,x,y,((Math.floor(x/size)+Math.floor(y/size))%2)?a:b,o)}
+ function cloud(p,f,x,y){stamp(p,f,x,y,['.rr.','rrrr','.rrr','..r.'],{r:'#b44854'});dot(p,f,x,y+1,'#ddd4d0')}
+ function fan(p='body',f='back',x=2,y=3){stamp(p,f,x,y,['.rr.','rrrr','wwww','.ww.','..w.'],{r:'#b74c57',w:'#e8e1da'})}
+ function scout(p='body',f='back',x=2,y=3,o=false){stamp(p,f,x,y,['w..b','wwbb','wbwb','wwbb','.wb.'],{w:'#dcded6',b:'#6987a3'},o)}
+ function seam(p,f,x,y,len,col,o=false){paint(p,f,x,y,1,len,col,o);}
+ function openCoat(under,coat,width=2){for(let f of ['front']){paint('body',f,width,0,8-width*2,9,under);paint('body',f,0,0,width,12,coat);paint('body',f,8-width,0,width,12,coat);}paint('body','front',3,0,2,2,S)}
+ function collar(col){paint('body','front',0,0,3,2,col,true);paint('body','front',5,0,3,2,col,true);paint('body','back',0,0,8,2,col,true);for(let f of ['left','right'])paint('body',f,0,0,4,2,col,true);}
+ switch(c.id){
+ case'naruto':
+  if(v!==2)headband(v===1?'#604039':'#3b3f4c');
+  paint('head','front',0,5,2,1,'#a87b64');paint('head','front',6,5,2,1,'#a87b64');
+  dot('head','front',0,6,'#a87b64');dot('head','front',7,6,'#a87b64');
+  if(v===0){
+   band('body',0,4,'#343b4b');paint('body','front',3,0,2,12,'#babcc0');seam('body','front',4,0,12,'#666b72');
+   collar('#373e4d');for(let p of ['ra','la']){band(p,4,5,'#ed853e');band(p,9,1,'#343b4b');}
+   stamp('body','back',2,4,['.rr.','r..r','r.rr','.rr.'],{r:'#a14a44'});
+  }else if(v===1){
+   openCoat('#e78236','#9e443e');paint('body','front',3,0,2,7,'#3c3b40');collar('#a0443f');
+   band('body',10,2,'#313540');for(let p of ['ra','la'])band(p,8,2,'#303441');
+   for(let f of ['front']){dot('head',f,1,3,'#cb7241');dot('head',f,6,3,'#cb7241')}
+   stamp('body','back',2,4,['.yy.','y..y','y.yy','.yy.'],{y:'#d9c596'});
+  }else{
+   openCoat('#da813e','#eee5d4');collar('#ede5d4');paint('body','front',3,2,2,7,'#bc713d');
+   for(let p of ['body','ra','la']){let w=PARTS[p].w;for(let f of ['front','back','left','right'])for(let x=0;x<w;x++){paint(p,f,x,10-(x%3),1,2+(x%3),'#c64d45');}}
+   stamp('body','back',2,2,['.rr.','rrrr','.rr.','r.r.','.rr.'],{r:'#a7433c'});
+  }
+  break;
+ case'sasuke':
+  if(v===0){openCoat(S,'#e3dfdf');vneck('#eeece6',5);collar('#ddd9df');band('body',9,2,'#927fa8');for(let p of ['rl','ll'])band(p,0,3,'#a899bf');dot('body','front',5,10,'#b8a4cb');fan();}
+  if(v===1){headband('#313346',true);collar('#983e49');cloud('body','front',1,5);cloud('body','back',3,4);cloud('ra','front',0,4);cloud('la','back',0,5);seam('body','front',4,2,10,'#ab4452');eye='#b44354';dot('head','front',2,4,eye);dot('head','front',5,4,eye);}
+  if(v===2){vneck(S,4);collar('#414353');fan();band('ra',6,4,'#d5ccbe');band('la',6,4,'#d5ccbe');paint('body','front',3,8,2,3,'#a69abd');}
+  break;
+ case'kakashi':
+  if(v===1){
+   fill('head','front','#dbd8cd');paint('head','front',0,0,8,1,'#c3c6c6');stamp('head','front',0,1,['g......g','.r....r','..r..r..','.gg..gg.','..r..r..','...gg...','...gg...'],{g:'#4b525b',r:'#a5464b'});
+   paint('head','front',0,0,8,3,null,true);vneck('#3b4558');paint('body','front',2,4,4,4,'#bec2c8');band('body',9,2,'#525c70');band('ra',0,6,S);band('la',0,6,S);stamp('la','left',1,2,['r.','rr','.r'],{r:'#a54e56'});
+  }else{
+   headband('#394355');paint('head','front',4,3,4,2,'#a2aeb8');paint('head','front',5,3,2,1,'#d2d6d7');
+   paint('head','front',0,5,8,3,'#394353');paint('head','front',2,6,4,1,'#414e60');
+   if(v===0){collar('#899179');seam('body','front',3,1,10,'#536452');for(let x of [1,5]){paint('body','front',x,4,2,4,'#8d987e');paint('body','front',x,4,2,1,'#a3aa92')}paint('body','back',1,3,6,5,'#78876b');}
+   else{openCoat('#667765','#eee7d9');collar('#b34347');stamp('body','back',2,2,['.rr.','rrrr','r.r.','.rr.','..r.'],{r:'#ad4c49'});band('body',10,2,'#b84945');}
+  }break;
+ case'itachi':
+  if(v!==1)headband('#36343d',v===0);
+  dot('head','front',2,5,'#987d77');dot('head','front',5,5,'#987d77');dot('head','front',1,6,'#ad8e82');dot('head','front',6,6,'#ad8e82');
+  if(v===0){collar('#a24652');seam('body','front',4,1,11,'#99414e');cloud('body','front',1,5);cloud('body','back',3,4);cloud('ra','front',0,5);cloud('la','back',0,4);band('rl',6,3,'#d7c9bc');band('ll',6,3,'#d7c9bc');}
+  else if(v===1){vneck('#394050');paint('body','front',2,3,4,5,'#b9bac2');band('body',9,2,'#695c79');band('ra',5,4,'#393e52');band('la',5,4,'#393e52');stamp('ra','right',1,1,['r.','rr','.r'],{r:'#a24851'});fan();}
+  else{collar('#3c485d');fan();paint('body','front',3,0,2,3,'#e5d8c5');band('ra',8,2,'#bac3ca');band('la',8,2,'#bac3ca');}
+  break;
+ case'luffy':
+  if(v<2){
+   for(let f of ['top','back','left','right']){paint('head',f,0,0,8,f==='top'?8:2,'#d9b665',true);if(f!=='top')paint('head',f,0,2,8,1,'#ac4845',true)}
+   paint('head','front',0,0,8,1,'#e7c97d',true);paint('head','front',0,1,8,1,'#b94f42',true);paint('head','front',0,2,8,1,'#e0bd6b',true);
+  }else{paint('head','front',1,1,2,1,'#faf4f1',true);paint('head','front',5,0,2,1,'#ffffff',true);}
+  paint('head','front',6,5,2,1,'#9d7359');
+  openCoat(S,shirt,2);paint('body','front',2,8,4,3,S);for(let y of [3,6,9])dot('body','front',1,y,'#e3c36b');
+  if(v!==0){stamp('body','front',2,4,['s..s','.ss.','.ss.','s..s'],{s:'#a66c58'});band('body',10,2,'#e5c263');}
+  if(v===1){shade('body','back','#333039');for(let f of ['left','right'])paint('body',f,0,0,2,12,'#333039',true);collar('#3f3038');}
+  if(v===2){collar('#f6f0ef');band('rl',6,1,'#f8f3ed');band('ll',6,1,'#f8f3ed');}
+  break;
+ case'zoro':
+  dot('head','front',5,3,'#9a7658');dot('head','front',5,4,'#9a7658');dot('head','front',5,5,'#9a7658');
+  for(let y of [5,6,7])dot('head','left',3,y,'#e0c773',true);
+  if(v===0){openCoat(S,shirt);vneck('#2f4d3a',6);paint('body','front',2,3,1,4,'#aa7960');band('body',9,2,'#a44946');collar('#568165');}
+  if(v===1){collar('#d8c8ba');vneck(S,4);paint('body','front',3,5,1,4,'#c4bbb0');for(let y of [5,7,9])dot('body','front',5,y,'#c2b297');}
+  if(v===2){band('body',8,4,'#609552');for(let y of [8,10])band('body',y,1,'#477e45');vneck('#b1b5aa',2);}
+  for(let p of ['rl','ll'])paint(p,'front',0,0,1,3,tint(pants,-18));
+  break;
+ case'goku':
+  if(v!==2){vneck('#334e83',5);for(let p of ['ra','la'])band(p,0,2,'#3a568b');stamp('body','front',5,3,['ww','wk','ww'],{w:'#eee0cb',k:'#354151'});stamp('body','back',2,3,['.ww.','wkkw','wkwk','.ww.'],{w:'#eddec4',k:'#394552'});}
+  else{paint('body','front',1,3,2,1,D);paint('body','front',5,3,2,1,D);seam('body','front',4,3,5,D);paint('body','front',2,6,2,1,D);paint('body','front',5,7,1,1,D);paint('body','back',1,3,1,4,D);paint('body','back',6,3,1,4,D);}
+  for(let p of ['ra','la'])band(p,8,2,'#3f6095');for(let p of ['rl','ll']){band(p,8,1,'#cfb668');band(p,11,1,'#ab6052');}
+  break;
+ case'vegeta':
+  if(v!==1){
+   paint('body','front',1,0,6,5,'#e9e9dd');paint('body','front',1,5,6,4,'#bdab76');for(let y of [5,7])paint('body','front',1,y,6,1,'#988758');
+   paint('body','back',1,2,6,6,'#d9dcd5');for(let p of ['ra','la'])band(p,0,v===2?3:1,v===2?'#bfac78':'#e8e8dd');
+   if(v===2){paint('head','front',0,3,3,2,'#7faa87',true);dot('head','front',1,3,'#b9dbb8',true);paint('head','right',5,3,3,2,'#dee0d9',true);band('body',9,2,'#886b57');for(let p of ['rl','ll'])band(p,0,2,'#c3af7b');}
+  }else{stamp('head','front',2,2,['k..k','kkkk','.kk.'],{k:'#413c42'});paint('head','front',2,2,4,1,null,true);paint('body','front',1,2,2,1,'#48629a');paint('body','front',5,2,2,1,'#48629a');paint('body','front',3,9,2,2,'#d8c269');hair='#ddc46c';/* majin gold hair: repaint only hair-valued pixels below */}
+  for(let p of ['rl','ll'])band(p,9,1,'#b9ab7c');
+  break;
+ case'tanjiro':
+  for(let p of ['body','ra','la'])for(let f of ['front','back','left','right']){
+   if(v===0)checker(p,f,'#54a889','#283e3b',2);
+   else if(v===1){shade(p,f,'#8cbdca');stamp(p,f,0,3,['.ww.','wwww','.ww.'],{w:'#e3e8dc'});stamp(p,f,2,8,['.ww.','wwww'],{w:'#e3e8dc'});}
+   else{shade(p,f,'#7e9bb9');for(let y=2;y<12;y+=4)paint(p,f,0,y,PARTS[p].w,1,'#aec8d2');}
+  }
+  openCoat('#333946',v===0?'#58a88a':v===1?'#8bbcc9':'#819fbb',1);if(v===0){checker('body','front','#54a889','#283e3b',2);paint('body','front',2,0,4,9,'#333946');paint('body','front',3,0,2,2,S);}band('body',9,1,'#dedacc');
+  for(let p of ['ra','la']){band(p,10,2,S);band(p,9,1,'#303740');}
+  paint('body','front',3,2,2,1,'#ccc6b8');for(let y of [4,6,8])dot('body','front',4,y,'#bbb9af');
+  stamp('head','front',5,1,['rr','r.','.r'],{r:'#a2514c'});paint('head','front',5,1,2,2,null,true);
+  for(let f of ['left','right']){paint('head',f,4,5,1,3,'#e8dfd7',true);dot('head',f,4,6,'#b55652',true)}
+  if(v===1){stamp('head','left',1,2,['www','wrw','wkw'],{w:'#ece5df',r:'#bd6e60',k:'#413d3e'},true);}
+  if(v===2)vneck('#e2dfd0',4);
+  break;
+ case'nezuko':
+  for(let f of ['back','left','right'])for(let y=5;y<8;y++)paint('head',f,0,y,8,1,tint('#914d37',(y-5)*13),true);
+  if(v!==2){
+   for(let f of ['front','back'])for(let y=0;y<9;y++)for(let x=0;x<8;x++)if((x+y)%4===0||(x-y+12)%4===0)dot('body',f,x,y,'#b66a89');
+   vneck('#ead1ca',4);band('body',8,3,'#ad4c54');paint('body','front',0,8,8,1,'#e8d4c6');paint('body','front',3,8,2,3,'#719c80');
+   for(let p of ['rl','ll']){for(let f of ['front','back'])for(let y=0;y<5;y++)for(let x=0;x<4;x++)if((x+y)%3===0)dot(p,f,x,y,'#b4718e');band(p,5,4,'#e4c9bf');band(p,7,1,'#f1ded0');}
+   paint('head','front',1,6,6,1,'#84a575',true);paint('head','front',2,6,3,1,'#b0c68b',true);dot('head','front',1,6,'#67865c',true);dot('head','front',6,6,'#67865c',true);
+   for(let f of ['back','left','right'])shade('body',f,'#493036');
+  }else{vneck('#3c3e57',5);stamp('body','front',2,3,['r..r','.rr.','..r.','..r.'],{r:'#b35b70'});band('body',9,3,'#51516a');for(let p of ['rl','ll']){band(p,0,4,'#53516a');band(p,4,4,S);band(p,8,3,'#f0e5df');}}
+  dot('head','front',7,2,'#e6a5b7',true);dot('head','front',6,2,'#efaec4',true);
+  if(v===1){stamp('head','front',5,0,['.w','ww','.d'],{w:'#e3cfad',d:'#bfa689'},true);stamp('head','front',0,3,['.k','k.','.k'],{k:'#7c514d'});stamp('body','front',1,4,['k.','.k','k.'],{k:'#91545f'});}
+  break;
+ case'zenitsu':
+  if(v===0){for(let p of ['body','ra','la'])for(let f of ['front','back','left','right']){let r=uvRect(p,f);for(let y=2;y<10;y+=4)for(let x=(y%8===2?1:3);x<r[2];x+=4)stamp(p,f,x,y,['w','ww'],{w:'#eee5ce'});}openCoat('#34373b','#ddb04e',1);collar('#e7c374');}
+  else if(v===1){collar('#dfdccf');seam('body','front',4,2,8,'#bbb6a6');stamp('body','back',2,3,['wwww','.ww.','wwww','.w..'],{w:'#d6d0c0'});}
+  else{vneck('#e6ded0',4);paint('body','front',3,2,2,5,'#944e43');paint('body','front',5,4,2,2,'#c19a53');band('ra',8,2,'#b39769');band('la',8,2,'#b39769');}
+  band('body',9,1,'#e6dfd0');for(let p of ['ra','la'])band(p,10,2,S);
+  break;
+ case'gojo':
+  collar(v===2?'#3e4659':'#303749');paint('body','front',3,1,2,2,shirt);dot('body','front',5,3,'#b1a17e');seam('body','front',4,4,7,tint(shirt,12));
+  if(v===0){paint('head','front',0,3,8,2,'#262e3b',true);paint('head','front',1,3,6,1,'#353e4c',true);for(let f of ['back','left','right'])paint('head',f,0,3,8,2,'#2b3543',true)}
+  else if(v===1){paint('head','front',1,4,2,1,'#75d9f7');paint('head','front',5,4,2,1,'#75d9f7');dot('head','front',2,4,'#d3f9ff');dot('head','front',5,4,'#d3f9ff');}
+  else{paint('head','front',0,4,3,1,'#34404b',true);paint('head','front',5,4,3,1,'#34404b',true);paint('head','front',3,4,2,1,'#66717b',true);paint('body','front',4,2,1,7,'#566072');}
+  break;
+ case'yuji':case'sukuna':
+  if(v===0){collar('#9f454d');paint('body','front',1,0,6,2,'#a64851',true);paint('body','back',1,0,6,4,'#a54a53',true);seam('body','front',5,2,8,'#4f5265');dot('body','front',6,3,'#b7a174');for(let p of ['ra','la'])band(p,9,1,'#a94e55');}
+  if(c.id==='yuji'&&v===1){vneck('#747b8b',2);paint('body','front',2,5,4,1,'#737e92');paint('body','front',3,6,2,1,'#6d788b');band('ra',9,1,'#929aad');band('la',9,1,'#929aad');}
+  if(c.id==='yuji'&&v===2){collar('#e9e6df');vneck(S,3);paint('body','front',4,3,1,7,'#b4b6b4');for(let y of [3,6,8])dot('body','front',4,y,'#737d82');}
+  if(c.id==='sukuna'){
+   stamp('head','front',0,3,['k......k','........','kk....kk','.k.kk.k.','..k..k..'],{k:'#574049'});dot('head','front',3,1,'#644b50');dot('head','front',4,1,'#644b50');
+   if(v===1){vneck('#66616b',6);seam('body','front',4,5,4,'#aa9b9e');collar('#ddd5d0');}
+   if(v===2){stamp('body','front',0,1,['kk....kk','.kk..kk.','..k..k..','kk....kk','...kk...','kk....kk'],{k:'#62434c'});for(let p of ['ra','la']){band(p,2,1,'#5c4046');band(p,4,1,'#5c4046');band(p,7,1,'#5c4046');}paint('body','back',3,1,2,7,'#5e444a');}
+  }break;
+ case'ichigo':
+  vneck(v===0?'#e6e0d3':'#a24b53',6);paint('body','front',4,5,1,5,'#a5a0a0');collar(v===0?'#d2c9bb':'#743c47');
+  for(let p of ['ra','la'])band(p,9,1,v===0?'#e0dace':'#a13e49');
+  if(v>0){for(let p of ['rl','ll']){paint(p,'front',0,0,1,7,'#a3444d');paint(p,'back',3,0,1,6,'#913e48');}}
+  if(v===2){paint('head','front',0,1,4,7,'#e9e3d5',true);stamp('head','front',0,1,['r...','rr..','.rr.','kkk.','r...','.rr.','kk.k'],{r:'#99494a',k:'#38343a'},true);}
+  break;
+ case'eren':case'levi':
+  if(c.id==='eren'&&v===1){openCoat('#b4b0a5','#373737');vneck(S,5);collar('#414141');seam('body','back',3,1,10,'#303030');}
+  else{
+   if(c.id==='levi'&&v===2){openCoat('#ddd6c7','#aaa699');vneck('#eae2d4',3);paint('body','front',3,4,2,3,'#c4bdaf');}
+   else{openCoat('#c4c6b6',shirt);collar(tint(shirt,12));scout();scout('la','left',0,3);scout('ra','right',0,3);paint('body','front',0,5,2,1,'#d4c5a6');paint('body','front',6,5,2,1,'#d4c5a6');}
+   for(let p of ['rl','ll']){band(p,2,1,'#6f6054');band(p,6,1,'#6f6054');for(let f of ['front','back']){paint(p,f,1,0,1,8,'#6f6054');paint(p,f,3,3,1,2,'#8e8880');}}
+   paint('body','front',2,7,4,1,'#695c53');paint('body','front',3,9,2,2,'#b9b6a5');
+   if(c.id==='levi'){stamp('body','front',2,0,['w..w','.ww.','.ww.','..w.'],{w:'#ebe5d7'});}
+   if(c.id==='eren'&&v===0){shade('body','back','#617457',true);for(let f of ['left','right'])shade('body',f,'#617457',true);collar('#738362');scout('body','back',2,3,true);}
+   if(c.id==='eren'&&v===2){shade('body','back',shirt);stamp('body','back',2,3,['w..w','.ww.','.ww.','w..w'],{w:'#d9d2ba'});paint('body','front',2,2,4,4,'#aaa99a');paint('body','front',3,0,2,2,S);for(let p of ['ra','la']){let f=p==='ra'?'right':'left';paint(p,f,0,3,4,5,shirt);stamp(p,f,0,3,['w..w','.ww.','.ww.','w..w'],{w:'#d9d2ba'});}}
+   if(c.id==='levi'&&v===1){shade('body','back','#627354',true);for(let f of ['left','right'])shade('body',f,'#627354',true);collar('#778264');scout('body','back',2,3,true);}
+  }
+  break;
+ case'deku':
+  for(let x of [0,2,5,7])dot('head','front',x,5,'#967b61');
+  if(v!==1){
+   paint('body','front',0,0,2,9,'#384d48');paint('body','front',6,0,2,9,'#384d48');paint('body','front',3,2,2,6,'#b6c3b7');
+   collar(v===2?'#c3b58d':'#b6c3bc');paint('body','front',2,0,4,2,v===2?'#c2b392':'#c2cec3',true);for(let p of ['ra','la']){band(p,7,2,'#737f77');band(p,9,1,'#d2d5c6');}for(let p of ['rl','ll'])band(p,6,2,'#343f3d');
+   if(v===2){paint('head','front',0,5,8,3,'#a4aca0',true);paint('head','front',1,6,6,1,'#4b635d',true);dot('head','front',1,4,'#dae8cc');dot('head','front',6,4,'#dae8cc');}
+  }else{collar('#49665f');vneck('#ece7dc',4);paint('body','front',3,2,2,5,'#9c4a4b');for(let y of [6,8])dot('body','front',4,y,'#6c6b64');band('ra',9,1,'#5f7970');band('la',9,1,'#5f7970');}
+  break;
+ case'saitama':
+  if(v===0){
+   collar('#eae4d7');paint('body','front',3,1,2,7,'#b79b54');paint('body','front',3,0,2,1,'#f0ead8');dot('body','front',1,1,'#6c7779',true);dot('body','front',6,1,'#6c7779',true);
+   shade('body','back','#e5dfd1',true);for(let f of ['left','right'])paint('body',f,0,0,1,12,'#ded9cf',true);paint('body','front',3,9,2,2,'#d0c8b8');
+  }else if(v===1){paint('body','front',3,0,2,12,'#b9a561');collar('#3c598d');for(let p of ['ra','la'])for(let f of ['left','right'])paint(p,f,1,0,1,10,'#c1b16a');for(let p of ['rl','ll'])for(let f of ['left','right'])paint(p,f,1,0,1,9,'#baa966');}
+  else{collar('#b892a2');stamp('body','front',1,3,['kk..kk','k....k','kk..kk','......','.kkkk.'],{k:'#7c596f'});paint('body','front',2,8,4,2,'#b48fa0');}
+  break;
+ case'killua':
+  collar(v===0?'#637096':v===1?'#a6b9df':'#806da6');
+  if(v===0){paint('body','front',3,0,2,4,'#7281a3');paint('body','front',3,4,2,1,'#a5aeba');for(let p of ['ra','la'])band(p,0,5,'#e3e2e3');}
+  if(v===1){vneck('#dfe5e8',4);seam('body','front',4,3,7,'#d5ddef');for(let p of ['ra','la'])band(p,0,4,'#a7b3d6');stamp('body','back',2,3,['..w.','.ww.','ww..','.ww.','..w.'],{w:'#d9ebf4'});}
+  if(v===2){paint('body','front',3,0,2,5,'#8874b0');band('body',9,2,'#a1a4bd');for(let p of ['ra','la']){band(p,0,4,'#e2e4e6');band(p,4,5,'#7e6da4');}}
+  break;
+ }
+ // Correct golden Majin hair using only head UVs, never recoloring clothes or skin.
+ if(c.id==='vegeta'&&v===1){
+  function isDarkHair(color){if(!color)return false;let n=parseInt(color.slice(1),16);let r=n>>16&255,g=n>>8&255,b=n&255;return b>=r&&b>g&&r<65&&g<65&&b<84}
+  for(let o of [false,true])for(let f of FACES){let [x,y,w,h]=uvRect('head',f,o);for(let j=0;j<h;j++)for(let i=0;i<w;i++){let k=(y+j)*64+x+i;if(isDarkHair(px[k]))px[k]=tint('#dac067',(i%3===0?13:0)-(j>4?5:0));}}
+  stamp('head','front',2,2,['k..k','kkkk'],{k:'#514442'});paint('head','front',2,2,4,1,null,true);dot('head','front',2,4,'#739c99');dot('head','front',5,4,'#739c99');
+ }
+ const result={pixels:px,character:c,variant:v,name:c.variants[v],key};
+ skinCache.set(key,result);return result;
+}
+function xmlEscape(s){return String(s).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function pixelsSVG(pixels,w,h,title='',scale=1){
+ const colors=new Map();
+ for(let y=0;y<h;y++)for(let x=0;x<w;){const color=pixels[y*w+x];let end=x+1;while(end<w&&pixels[y*w+end]===color)end++;if(color){if(!colors.has(color))colors.set(color,[]);colors.get(color).push(`M${x} ${y}h${end-x}v1H${x}z`);}x=end;}
+ return `<svg xmlns="http://www.w3.org/2000/svg" width="${w*scale}" height="${h*scale}" viewBox="0 0 ${w} ${h}" shape-rendering="crispEdges" role="img" aria-label="${xmlEscape(title)}"><title>${xmlEscape(title)}</title>${[...colors].map(([c,p])=>`<path fill="${c}" d="${p.join('')}"/>`).join('')}</svg>`;
+}
+function atlasSVG(skin){return pixelsSVG(skin.pixels,64,64,`${skin.character.name} — ${skin.name} | Classic Minecraft skin, 64×64`)}
+function frontPixels(skin,back=false,layers=true){
+ const out=new Array(16*32).fill(null);const f=back?'back':'front';
+ const positions={head:[4,0],body:[4,8],ra:[back?12:0,8],la:[back?0:12,8],rl:[back?8:4,20],ll:[back?4:8,20]};
+ for(let [p,[tx,ty]]of Object.entries(positions))for(let o of layers?[false,true]:[false]){let[x,y,w,h]=uvRect(p,f,o);for(let j=0;j<h;j++)for(let i=0;i<w;i++){let col=skin.pixels[(y+j)*64+x+i];if(col)out[(ty+j)*16+tx+i]=col;}}
+ return out;
+}
+function frontSVG(skin,back=false){return pixelsSVG(frontPixels(skin,back),16,32,`${skin.character.name} — ${skin.name}, ${back?'back':'front'} view`)}
+function avatarSVG(skin){const p=new Array(64).fill(null);for(let o of [false,true]){let[x,y]=uvRect('head','front',o);for(let j=0;j<8;j++)for(let i=0;i<8;i++){let col=skin.pixels[(y+j)*64+x+i];if(col)p[j*8+i]=col;}}return pixelsSVG(p,8,8,skin.character.short)}
+function rgbaPixels(skin){const data=new Uint8Array(64*64*4);skin.pixels.forEach((c,i)=>{if(c){let n=parseInt(c.slice(1),16);data.set([n>>16&255,n>>8&255,n&255,255],i*4)}});return data;}
+if(typeof module!=='undefined')module.exports={CHARACTERS,PARTS,FACES,uvRect,createSkin,atlasSVG,frontSVG,frontPixels,avatarSVG,rgbaPixels,pixelsSVG};
+
+</script>
+<script>
+/* A small dependency-free WebGL renderer. Real UV-mapped cuboids, rigid Minecraft
+   limb pivots, z-buffered outer layers, nearest-neighbor textures, orbit camera. */
+const V3={
+ sub:(a,b)=>a.map((x,i)=>x-b[i]),
+ cross:(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]],
+ norm:a=>{let d=Math.hypot(...a)||1;return a.map(x=>x/d)},
+ dot:(a,b)=>a.reduce((s,x,i)=>s+x*b[i],0)
+};
+function perspective(fov,aspect,near,far){let f=1/Math.tan(fov/2),nf=1/(near-far);return new Float32Array([f/aspect,0,0,0,0,f,0,0,0,0,(far+near)*nf,-1,0,0,2*far*near*nf,0])}
+function lookAt(eye,target){let z=V3.norm(V3.sub(eye,target)),x=V3.norm(V3.cross([0,1,0],z)),y=V3.cross(z,x);return new Float32Array([x[0],y[0],z[0],0,x[1],y[1],z[1],0,x[2],y[2],z[2],0,-V3.dot(x,eye),-V3.dot(y,eye),-V3.dot(z,eye),1])}
+function mul4(a,b){let o=new Float32Array(16);for(let c=0;c<4;c++)for(let r=0;r<4;r++)for(let k=0;k<4;k++)o[c*4+r]+=a[k*4+r]*b[c*4+k];return o}
+function rot3(p,r){let[x,y,z]=p;let c=Math.cos(r[0]),s=Math.sin(r[0]);[y,z]=[y*c-z*s,y*s+z*c];c=Math.cos(r[1]);s=Math.sin(r[1]);[x,z]=[x*c+z*s,-x*s+z*c];c=Math.cos(r[2]);s=Math.sin(r[2]);[x,y]=[x*c-y*s,x*s+y*c];return[x,y,z]}
+function hexRGB(h){let n=parseInt(h.slice(1),16);return[n>>16&255,n>>8&255,n&255].map(v=>v/255)}
+function compileShader(gl,type,source){const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(s));return s}
+class SkinRenderer{
+ constructor(canvas){
+  this.canvas=canvas;this.gl=canvas.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:false,preserveDrawingBuffer:true,powerPreference:'low-power'});
+  this.backend=this.gl?'webgl':'software';
+  if(!this.gl){this.ctx=canvas.getContext('2d',{alpha:true});if(!this.ctx)throw new Error('Canvas is unavailable');}
+  if(this.gl){
+  const gl=this.gl;
+  const vs=`attribute vec3 aPosition;attribute vec3 aNormal;attribute vec2 aUV;attribute vec4 aColor;uniform mat4 uVP;varying vec3 vNormal;varying vec2 vUV;varying vec4 vColor;void main(){gl_Position=uVP*vec4(aPosition,1.0);vNormal=aNormal;vUV=aUV;vColor=aColor;}`;
+  const fs=`precision mediump float;uniform sampler2D uTexture;varying vec3 vNormal;varying vec2 vUV;varying vec4 vColor;void main(){vec4 col=vColor;if(vUV.x>=0.0){col*=texture2D(uTexture,vUV);if(col.a<0.5)discard;vec3 n=normalize(vNormal);float key=max(dot(n,normalize(vec3(-0.45,0.8,0.9))),0.0);float fill=max(dot(n,normalize(vec3(0.85,0.3,-0.55))),0.0);col.rgb*=0.73+key*0.28+fill*0.09;}gl_FragColor=col;}`;
+  this.program=gl.createProgram();gl.attachShader(this.program,compileShader(gl,gl.VERTEX_SHADER,vs));gl.attachShader(this.program,compileShader(gl,gl.FRAGMENT_SHADER,fs));gl.linkProgram(this.program);if(!gl.getProgramParameter(this.program,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(this.program));
+  gl.useProgram(this.program);
+  this.buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,this.buffer);
+  const attrs=[['aPosition',3,0],['aNormal',3,3],['aUV',2,6],['aColor',4,8]];
+  for(let[name,size,offset]of attrs){let at=gl.getAttribLocation(this.program,name);gl.enableVertexAttribArray(at);gl.vertexAttribPointer(at,size,gl.FLOAT,false,48,offset*4)}
+  this.uVP=gl.getUniformLocation(this.program,'uVP');
+  this.texture=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,this.texture);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.uniform1i(gl.getUniformLocation(this.program,'uTexture'),0);
+  gl.enable(gl.DEPTH_TEST);gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);gl.clearColor(0,0,0,0);
+  }
+  this.yaw=-0.42;this.pitch=0.13;this.distance=63;this.autoRotate=false;this.layers=true;this.grid=true;this.environment='studio';this.animation='idle';this.speed=1;this.paused=false;this.time=0;this.accent='#f7a84c';this.pose={};this.skin=null;this.last=0;this.running=true;this.lastTouchDistance=0;
+  this.bindInput();this.resizeObserver=new ResizeObserver(()=>this.resize());this.resizeObserver.observe(canvas);this.resize();
+  this.tick=this.tick.bind(this);requestAnimationFrame(this.tick);
+ }
+ setSkin(skin){this.skin=skin;this.accent=skin.character.accent;this.softwareTexture=rgbaPixels(skin);if(!this.gl)return;const gl=this.gl;gl.bindTexture(gl.TEXTURE_2D,this.texture);gl.pixelStorei(gl.UNPACK_ALIGNMENT,1);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,64,64,0,gl.RGBA,gl.UNSIGNED_BYTE,rgbaPixels(skin));}
+ resize(){let r=this.canvas.getBoundingClientRect();let ratio=Math.min(window.devicePixelRatio||1,2);let w=Math.max(1,Math.round(r.width*ratio)),h=Math.max(1,Math.round(r.height*ratio));if(this.canvas.width!==w||this.canvas.height!==h){this.canvas.width=w;this.canvas.height=h;}if(this.gl)this.gl.viewport(0,0,w,h)}
+ reset(){this.yaw=-.42;this.pitch=.13;this.distance=63;this.autoRotate=false}
+ view(which){if(which==='front'){this.yaw=0;this.pitch=0;}if(which==='back'){this.yaw=Math.PI;this.pitch=0;}if(which==='iso'){this.yaw=-Math.PI/4;this.pitch=.3;}this.autoRotate=false;}
+ bindInput(){
+  const c=this.canvas,pointers=new Map();let last={x:0,y:0};
+  c.addEventListener('pointerdown',e=>{c.setPointerCapture(e.pointerId);pointers.set(e.pointerId,[e.clientX,e.clientY]);last={x:e.clientX,y:e.clientY};this.dragging=true;c.classList.add('dragging');this.autoRotate=false;if(this.onOrbit)this.onOrbit();});
+  c.addEventListener('pointermove',e=>{if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,[e.clientX,e.clientY]);if(pointers.size===2){let pts=[...pointers.values()],dist=Math.hypot(pts[0][0]-pts[1][0],pts[0][1]-pts[1][1]);if(this.lastTouchDistance)this.distance=Math.max(37,Math.min(105,this.distance*this.lastTouchDistance/dist));this.lastTouchDistance=dist;}else{this.yaw-=(e.clientX-last.x)*.008;this.pitch=Math.max(-.45,Math.min(1.25,this.pitch+(e.clientY-last.y)*.006));}last={x:e.clientX,y:e.clientY};});
+  const end=e=>{pointers.delete(e.pointerId);this.lastTouchDistance=0;if(!pointers.size){this.dragging=false;c.classList.remove('dragging')}};
+  c.addEventListener('pointerup',end);c.addEventListener('pointercancel',end);c.addEventListener('lostpointercapture',end);
+  c.addEventListener('wheel',e=>{e.preventDefault();this.distance=Math.max(37,Math.min(105,this.distance*Math.exp(e.deltaY*.001)));},{passive:false});
+  c.addEventListener('dblclick',()=>{this.reset();if(this.onOrbit)this.onOrbit()});
+  c.addEventListener('webglcontextlost',e=>{e.preventDefault();this.running=false;if(this.onError)this.onError('3D context lost. Reload to restore the viewer.');});
+ }
+ targetPose(t){
+  let p={raX:.05*Math.sin(t*1.2),laX:-.05*Math.sin(t*1.2),raZ:-.05-.025*Math.cos(t*1.4),laZ:.05+.025*Math.cos(t*1.4),rlX:0,llX:0,rlZ:0,llZ:0,bodyX:0,bodyY:0,headX:.015*Math.sin(t),headY:.035*Math.sin(t*.6),headZ:0,rootY:0,rootX:0,rootYaw:0};
+  let s=Math.sin(t*6),q=Math.cos(t*6);
+  switch(this.animation){
+  case'walk':p.raX=s*.68;p.laX=-s*.68;p.rlX=-s*.7;p.llX=s*.7;p.rootY=Math.abs(q)*.35;break;
+  case'run':s=Math.sin(t*10);p.raX=s*1.05;p.laX=-s*1.05;p.rlX=-s*.96;p.llX=s*.96;p.bodyX=.12;p.headX=-.12;p.rootY=Math.abs(Math.cos(t*10))*.85;break;
+  case'sneak':s=Math.sin(t*4);p.bodyX=.42;p.headX=-.42;p.rootY=-1.5;p.raX=-.1+s*.23;p.laX=-.1-s*.23;p.rlX=-.15-s*.22;p.llX=-.15+s*.22;break;
+  case'jump':p.rootY=Math.abs(Math.sin(t*2.8))*4.8;p.raX=-.52;p.laX=-.52;p.raZ=-.17;p.laZ=.17;p.rlX=.18;p.llX=-.18;break;
+  case'swim':p.rootX=Math.PI/2;p.rootY=-4;p.headX=-.18;p.raX=-t*4;p.laX=-t*4+Math.PI;p.rlX=Math.sin(t*7)*.24;p.llX=-p.rlX;break;
+  case'fly':p.rootX=1.35;p.rootY=-2+Math.sin(t*2)*.3;p.raX=-2.3;p.laX=-2.3;p.raZ=-.18;p.laZ=.18;p.rlX=.06;p.llX=-.06;p.headX=-.65;break;
+  case'attack':{let a=(t*1.15)%1;let swing=Math.sin(Math.PI*a);p.raX=-.35-swing*1.45;p.raZ=-.14-swing*.15;p.bodyY=-swing*.18;p.headY=-p.bodyY;p.laX=.08;break;}
+  }
+  return p;
+ }
+ tick(now){
+  if(!this.running)return;
+  const dt=Math.min(.04,this.last?(now-this.last)/1000:1/60);this.last=now;
+  if(!document.hidden){if(!this.paused)this.time+=dt*this.speed;if(this.autoRotate&&!this.dragging)this.yaw+=dt*.28;let target=this.targetPose(this.time);for(let k in target){if(this.pose[k]===undefined)this.pose[k]=target[k];if((this.animation==='swim')&&(k==='raX'||k==='laX'))this.pose[k]=target[k];else this.pose[k]+=(target[k]-this.pose[k])*(1-Math.exp(-dt*12));}if(this.skin)this.render();}
+  requestAnimationFrame(this.tick);
+ }
+ pushVertex(out,p,n,uv=[-1,-1],color=[1,1,1,1]){out.push(...p,...n,...uv,...color)}
+ solidQuad(out,vertices,color){for(let i of [0,1,2,2,1,3])this.pushVertex(out,vertices[i],[0,1,0],[-1,-1],color)}
+ ring(out,r1,r2,y,col,segments=96){for(let i=0;i<segments;i++){let a=i/segments*Math.PI*2,b=(i+1)/segments*Math.PI*2;this.solidQuad(out,[[Math.sin(a)*r1,y,Math.cos(a)*r1],[Math.sin(a)*r2,y,Math.cos(a)*r2],[Math.sin(b)*r1,y,Math.cos(b)*r1],[Math.sin(b)*r2,y,Math.cos(b)*r2]],col)}}
+ stageGeometry(){
+  const a=[],accent=hexRGB(this.accent);
+  if(this.environment==='void')return a;
+  if(this.environment==='studio'){
+   const n=96,R=12.8,y=-.32,h=1.25;
+   for(let i=0;i<n;i++){let p=i/n*Math.PI*2,q=(i+1)/n*Math.PI*2,x=Math.sin(p)*R,z=Math.cos(p)*R,x2=Math.sin(q)*R,z2=Math.cos(q)*R;
+    this.solidQuad(a,[[x,y,z],[x,y-h,z],[x2,y,z2],[x2,y-h,z2]],[.087,.102,.095,1]);
+    for(let v of [[0,y,0],[x,y,z],[x2,y,z2]])this.pushVertex(a,v,[0,1,0],[-1,-1],[.127,.145,.134,1]);
+   }
+   this.ring(a,12.5,12.8,-.30,[...accent.map(x=>x*.5),.9]);this.ring(a,12.77,12.83,-.48,[...accent,.6]);
+   if(this.grid){for(let x=-10;x<=10;x+=2){let z=Math.sqrt(12*12-x*x);this.solidQuad(a,[[x-.05,-.29,-z],[x+.05,-.29,-z],[x-.05,-.29,z],[x+.05,-.29,z]],[.24,.27,.24,.52]);this.solidQuad(a,[[-z,-.285,x-.05],[-z,-.285,x+.05],[z,-.285,x-.05],[z,-.285,x+.05]],[.24,.27,.24,.52]);}}
+   this.ring(a,16,16.025,-1.62,[...accent,.15]);this.ring(a,17.5,17.515,-1.62,[...accent,.065]);
+  }else{
+   // A deliberately block-built grass plinth; no external texture dependency.
+   const R=14,step=2,y=-.3;
+   for(let x=-R;x<R;x+=step)for(let z=-R;z<R;z+=step){let t=((x*13+z*7+70)%11)/90;let col=[.25+t,.36+t,.20+t*.5,1];this.solidQuad(a,[[x,y,z],[x,y,z+step],[x+step,y,z],[x+step,y,z+step]],col);}
+   for(let y1=-4;y1<0;y1+=2)for(let x=-14;x<14;x+=2){let k=((x*3+y1*7+500)%13)/130;let col=y1===-2?[.30+k,.33+k,.17,1]:[.27+k,.22+k,.17,1];for(let z of [-14,14])this.solidQuad(a,[[x,y1-.3,z],[x,y1+1.7,z],[x+2,y1-.3,z],[x+2,y1+1.7,z]],col);for(let s of [-14,14])this.solidQuad(a,[[s,y1-.3,x],[s,y1+1.7,x],[s,y1-.3,x+2],[s,y1+1.7,x+2]],col);}
+  }
+  // Soft contact shadow, laid above the platform and below the feet.
+  const lift=Math.max(0,this.pose.rootY||0),radius=7.4+lift*.35,opacity=.24-lift*.013;
+  for(let i=0;i<64;i++){let p=i/64*Math.PI*2,q=(i+1)/64*Math.PI*2;this.pushVertex(a,[0,-.255,0],[0,1,0],[-1,-1],[.016,.02,.02,opacity]);this.pushVertex(a,[Math.sin(p)*radius,-.255,Math.cos(p)*radius],[0,1,0],[-1,-1],[.016,.02,.02,0]);this.pushVertex(a,[Math.sin(q)*radius,-.255,Math.cos(q)*radius],[0,1,0],[-1,-1],[.016,.02,.02,0]);}
+  return a;
+ }
+ actorGeometry(){
+  const out=[],p=this.pose,torso=[p.bodyX,p.bodyY,0];
+  const configs={body:{pivot:[0,0,0],offset:[0,6,0],rot:[0,0,0],parent:true},head:{pivot:[0,12,0],offset:[0,4,0],rot:[p.headX,p.headY,p.headZ],parent:true},ra:{pivot:[-6,10,0],offset:[0,-4,0],rot:[p.raX,0,p.raZ],parent:true},la:{pivot:[6,10,0],offset:[0,-4,0],rot:[p.laX,0,p.laZ],parent:true},rl:{pivot:[-2,0,0],offset:[0,-6,0],rot:[p.rlX,0,p.rlZ]},ll:{pivot:[2,0,0],offset:[0,-6,0],rot:[p.llX,0,p.llZ]}};
+  function transform(v,c,normal=false){
+   let q=normal?v:v.map((x,i)=>x+c.offset[i]);q=rot3(q,c.rot);if(!normal)q=q.map((x,i)=>x+c.pivot[i]);if(c.parent)q=rot3(q,torso);if(!normal){q[1]+=12;q[1]-=16;}q=rot3(q,[p.rootX,0,0]);q=rot3(q,[0,p.rootYaw,0]);if(!normal)q[1]+=16+p.rootY;return q;
+  }
+  for(let outer of this.layers?[false,true]:[false])for(let part of ['body','rl','ll','ra','la','head']){
+   const d=PARTS[part],c=configs[part],expand=outer?(part==='head'?.48:.24):0,x=d.w/2+expand,y=d.h/2+expand,z=d.d/2+expand;
+   const faces={
+    front:{n:[0,0,1],v:[[-x,y,z],[-x,-y,z],[x,y,z],[x,-y,z]]},
+    back:{n:[0,0,-1],v:[[x,y,-z],[x,-y,-z],[-x,y,-z],[-x,-y,-z]]},
+    right:{n:[-1,0,0],v:[[-x,y,-z],[-x,-y,-z],[-x,y,z],[-x,-y,z]]},
+    left:{n:[1,0,0],v:[[x,y,z],[x,-y,z],[x,y,-z],[x,-y,-z]]},
+    top:{n:[0,1,0],v:[[-x,y,-z],[-x,y,z],[x,y,-z],[x,y,z]]},
+    bottom:{n:[0,-1,0],v:[[-x,-y,z],[-x,-y,-z],[x,-y,z],[x,-y,-z]]}
+   };
+   for(let[f,data]of Object.entries(faces)){
+    const r=uvRect(part,f,outer),u0=(r[0]+.002)/64,v0=(r[1]+.002)/64,u1=(r[0]+r[2]-.002)/64,v1=(r[1]+r[3]-.002)/64;
+    const uvs=[[u0,v0],[u0,v1],[u1,v0],[u1,v1]],n=transform(data.n,c,true);
+    for(let i of [0,1,2,2,1,3])this.pushVertex(out,transform(data.v[i],c),n,uvs[i]);
+   }
+  }
+  return out;
+ }
+ render(){
+  if(!this.gl){this.renderSoftware();return;}
+  const gl=this.gl,w=this.canvas.width,h=this.canvas.height;
+  if(w<2||h<2)return;
+  gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(this.program);gl.bindTexture(gl.TEXTURE_2D,this.texture);
+  const eye=[Math.sin(this.yaw)*Math.cos(this.pitch)*this.distance,15.5+Math.sin(this.pitch)*this.distance,Math.cos(this.yaw)*Math.cos(this.pitch)*this.distance];
+  const vp=mul4(perspective(37*Math.PI/180,w/h,.1,300),lookAt(eye,[0,15.5,0]));gl.uniformMatrix4fv(this.uVP,false,vp);
+  const stage=this.stageGeometry(),actor=this.actorGeometry();gl.bindBuffer(gl.ARRAY_BUFFER,this.buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([...stage,...actor]),gl.DYNAMIC_DRAW);
+  gl.depthMask(true);gl.drawArrays(gl.TRIANGLES,0,stage.length/12);gl.drawArrays(gl.TRIANGLES,stage.length/12,actor.length/12);
+ }
+ renderSoftware(){
+  const w=this.canvas.width,h=this.canvas.height;if(w<2||h<2)return;
+  if(!this.frame||this.frame.width!==w||this.frame.height!==h){this.frame=this.ctx.createImageData(w,h);this.zbuffer=new Float32Array(w*h)}
+  const pixels=this.frame.data,zbuf=this.zbuffer,texture=this.softwareTexture;pixels.fill(0);zbuf.fill(Infinity);
+  const eye=[Math.sin(this.yaw)*Math.cos(this.pitch)*this.distance,15.5+Math.sin(this.pitch)*this.distance,Math.cos(this.yaw)*Math.cos(this.pitch)*this.distance];
+  const m=mul4(perspective(37*Math.PI/180,w/h,.1,300),lookAt(eye,[0,15.5,0]));
+  const input=[...this.stageGeometry(),...this.actorGeometry()];
+  const key=V3.norm([-.45,.8,.9]),fill=V3.norm([.85,.3,-.55]);
+  // Perspective-correct triangle rasterization with a real per-pixel depth buffer.
+  // This is a functional 3D fallback, not a static front-view image.
+  for(let t=0;t<input.length;t+=36){
+   let v=[];
+   for(let k=0;k<3;k++){let i=t+k*12,x=input[i],y=input[i+1],z=input[i+2],cw=m[3]*x+m[7]*y+m[11]*z+m[15];
+    if(cw<=.1)break;let iw=1/cw;v.push([(m[0]*x+m[4]*y+m[8]*z+m[12])*iw*w*.5+w*.5,h*.5-(m[1]*x+m[5]*y+m[9]*z+m[13])*iw*h*.5,(m[2]*x+m[6]*y+m[10]*z+m[14])*iw,iw,input[i+6],input[i+7],input[i+8],input[i+9],input[i+10],input[i+11]]);
+   }
+   if(v.length!==3)continue;
+   let a=v[0],b=v[1],c=v[2],den=(b[1]-c[1])*(a[0]-c[0])+(c[0]-b[0])*(a[1]-c[1]);if(Math.abs(den)<.0001)continue;
+   let x0=Math.max(0,Math.floor(Math.min(a[0],b[0],c[0]))),x1=Math.min(w-1,Math.ceil(Math.max(a[0],b[0],c[0]))),y0=Math.max(0,Math.floor(Math.min(a[1],b[1],c[1]))),y1=Math.min(h-1,Math.ceil(Math.max(a[1],b[1],c[1])));
+   if(x1<x0||y1<y0)continue;
+   const da=(b[1]-c[1])/den,db=(c[1]-a[1])/den,ya=(c[0]-b[0])/den,yb=(a[0]-c[0])/den;
+   const textured=a[4]>=0,normal=V3.norm([input[t+3],input[t+4],input[t+5]]),light=.73+Math.max(0,V3.dot(normal,key))*.28+Math.max(0,V3.dot(normal,fill))*.09;
+   const u0=a[4]*a[3],u1=b[4]*b[3],u2=c[4]*c[3],v0=a[5]*a[3],v1=b[5]*b[3],v2=c[5]*c[3];
+   const flatColor=a[6]===b[6]&&a[6]===c[6]&&a[7]===b[7]&&a[7]===c[7]&&a[8]===b[8]&&a[8]===c[8]&&a[9]===b[9]&&a[9]===c[9];
+   for(let y=y0;y<=y1;y++){
+    let aa=da*(x0+.5-c[0])+ya*(y+.5-c[1]),bb=db*(x0+.5-c[0])+yb*(y+.5-c[1]);
+    for(let x=x0;x<=x1;x++,aa+=da,bb+=db){let cc=1-aa-bb;if(aa<-.00001||bb<-.00001||cc<-.00001)continue;
+     let z=aa*a[2]+bb*b[2]+cc*c[2],at=y*w+x;if(z>=zbuf[at])continue;
+     let r,g,bl,alpha;
+     if(textured){let inv=1/(aa*a[3]+bb*b[3]+cc*c[3]);let u=Math.max(0,Math.min(63,Math.floor((aa*u0+bb*u1+cc*u2)*inv*64))),vv=Math.max(0,Math.min(63,Math.floor((aa*v0+bb*v1+cc*v2)*inv*64))),ti=(vv*64+u)*4;if(texture[ti+3]<128)continue;r=texture[ti]*light;g=texture[ti+1]*light;bl=texture[ti+2]*light;alpha=1;}
+     else if(flatColor){r=a[6]*255;g=a[7]*255;bl=a[8]*255;alpha=a[9];}
+     else{r=(a[6]*aa+b[6]*bb+c[6]*cc)*255;g=(a[7]*aa+b[7]*bb+c[7]*cc)*255;bl=(a[8]*aa+b[8]*bb+c[8]*cc)*255;alpha=a[9]*aa+b[9]*bb+c[9]*cc;}
+     if(alpha<=.001)continue;
+     let p=at*4;
+     if(alpha>=.999){pixels[p]=r;pixels[p+1]=g;pixels[p+2]=bl;pixels[p+3]=255;}
+     else{let oldA=pixels[p+3]/255,outA=alpha+oldA*(1-alpha),factor=oldA*(1-alpha);pixels[p]=(r*alpha+pixels[p]*factor)/outA;pixels[p+1]=(g*alpha+pixels[p+1]*factor)/outA;pixels[p+2]=(bl*alpha+pixels[p+2]*factor)/outA;pixels[p+3]=outA*255;}
+     zbuf[at]=z;
+    }
+   }
+  }
+  this.ctx.putImageData(this.frame,0,0);
+ }
+
+ destroy(){this.running=false;this.resizeObserver.disconnect();if(this.gl){this.gl.deleteTexture(this.texture);this.gl.deleteBuffer(this.buffer);this.gl.deleteProgram(this.program)}}
+}
+
+</script>
+<script>
+'use strict';
+const ICONS={
+ search:'<circle cx="10.7" cy="10.7" r="6.2"/><path d="m15.4 15.4 4.1 4.1"/>',
+ sun:'<circle cx="12" cy="12" r="3.5"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4m0-14.2-1.4 1.4M6.3 17.7l-1.4 1.4"/>',
+ moon:'<path d="M20 14a8.5 8.5 0 0 1-10-10 8.5 8.5 0 1 0 10 10Z"/>',
+ download:'<path d="M12 3v12m-4-4 4 4 4-4M4 16v4h16v-4"/>',
+ chevronDown:'<path d="m7 10 5 5 5-5"/>',chevronLeft:'<path d="m14 6-6 6 6 6"/>',chevronRight:'<path d="m9 6 6 6-6 6"/>',
+ image:'<rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/>',
+ code:'<path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18"/>',
+ person:'<rect x="8" y="2" width="8" height="7" rx=".5"/><path d="M8 9H5v8h3m8-8h3v8h-3M8 9v13h4V16v6h4V9"/>',
+ camera:'<path d="m8 5 1-2h6l1 2h4a1 1 0 0 1 1 1v14H3V6a1 1 0 0 1 1-1Z"/><circle cx="12" cy="12.5" r="4"/>',
+ package:'<path d="m12 2 9 5v10l-9 5-9-5V7ZM3 7l9 5 9-5m-9 5v10M7 4.8l10 5.5v4"/>',
+ rotate:'<path d="M20 8a8 8 0 0 0-14-2L3 9m0-6v6h6m-5 7a8 8 0 0 0 14 2l3-3m0 6v-6h-6"/>',
+ reset:'<path d="M4 10a8 8 0 1 1 .8 7M4 4v6h6"/>',
+ layers:'<path d="m12 3 10 5-10 5L2 8Zm-10 9 10 5 10-5M2 16l10 5 10-5"/>',
+ maximize:'<path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/>',
+ minimize:'<path d="M3 8h5V3m8 0v5h5M8 21v-5H3m13 5v-5h5"/>',
+ front:'<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 9h1m6 0h1m-7 6h6"/>',
+ back:'<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 7h8m-8 4h8m-8 4h8"/>',
+ cube:'<path d="m12 2 9 5v10l-9 5-9-5V7Zm-9 5 9 5 9-5m-9 5v10"/>',
+ plus:'<path d="M12 5v14M5 12h14"/>',minus:'<path d="M5 12h14"/>',
+ mouse:'<rect x="6" y="2" width="12" height="20" rx="6"/><path d="M12 6v4"/>',
+ disc:'<ellipse cx="12" cy="9" rx="9" ry="5"/><path d="M3 9v5c0 6 18 6 18 0V9"/>',
+ grass:'<path d="m12 3 9 5v9l-9 5-9-5V8Zm-9 5 9 5 9-5m-9 5v9M3 12l3 2 2-1 2 2 2 1m0 0 2-2 2 0 2-2 3-2"/>',
+ stars:'<path d="m12 3 2.3 6.7L21 12l-6.7 2.3L12 21l-2.3-6.7L3 12l6.7-2.3ZM4 2v4M2 4h4m13 14v4m-2-2h4"/>',
+ grid:'<rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>',
+ pause:'<path d="M8 5v14M16 5v14" stroke-width="3"/>',play:'<path d="m8 4 12 8-12 8Z" fill="currentColor" stroke="none"/>',
+ idle:'<circle cx="12" cy="4" r="2"/><path d="M12 8v7m-4-6-2 5m10-5 2 5m-6 1-3 7m3-7 3 7"/>',
+ walk:'<circle cx="13" cy="3.5" r="2"/><path d="m12 8-2 6 3 3v5m-3-8-5 7m7-13 4 5h4M11 8l-5 3-2 3"/>',
+ run:'<circle cx="16" cy="3.5" r="2"/><path d="m14 8-5 5 5 3-2 6m-3-9-3 5H2m12-10 3 4h5m-9-5-5-1-3 4"/>',
+ sneak:'<circle cx="16" cy="5" r="2"/><path d="m13 9-5 4 6 3v5m-6-8-3 4 2 4m6-12 3 6h5M3 21h17"/>',
+ jump:'<circle cx="12" cy="6" r="2"/><path d="m4 3 4 7h8l4-7m-8 7v6m0 0-5 5m5-5 5 5"/>',
+ swim:'<circle cx="18" cy="8" r="2"/><path d="m15 11-7-3-4 3m4-3 4-5 4 1M2 16c3-4 5 4 8 0s5 4 8 0 3 0 4 0M2 21c3-4 5 4 8 0s5 4 8 0 3 0 4 0"/>',
+ fly:'<circle cx="18" cy="6" r="2"/><path d="m15 9-6 5-7 2m7-2 2 5-5 3m9-13 6 4m-6-4-7-4-4 2"/>',
+ attack:'<path d="m4 21 7-7m-6-2 7 7m-5-5L18 3l3 0v3L10 17M3 18l3 3"/>',
+ close:'<path d="m6 6 12 12M6 18 18 6"/>',check:'<path d="m5 12 4 4 10-10"/>',heart:'<path d="M20 5c-3-3-7-1-8 2-1-3-5-5-8-2s-1 7 8 14c9-7 11-11 8-14Z"/>'
+};
+function icon(name){return `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name]||ICONS.cube}</svg>`}
+function mountIcons(root=document){root.querySelectorAll('[data-icon]').forEach(el=>{el.outerHTML=icon(el.dataset.icon)})}
+const $=id=>document.getElementById(id);
+mountIcons();
+let state={index:0,variant:0,source:'atlas',back:false,guide:false,animation:'idle'},renderer=null,currentSkin=null,toastTimer=null,lastFocus=null,packBusy=false;
+const motionNames=['idle','walk','run','sneak','jump','swim','fly','attack'];
+function toast(text,duration=2400){$('toastText').textContent=text;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),duration)}
+function store(){try{localStorage.setItem('anime-skin-studio-v1',JSON.stringify({id:CHARACTERS[state.index].id,variant:state.variant,theme:document.body.classList.contains('light')?'light':'dark'}))}catch(e){}}
+function toggleButton(id,on){const b=$(id);b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))}
+function selectCharacter(index,variant=0,scroll=false){
+ state.index=(index+CHARACTERS.length)%CHARACTERS.length;state.variant=(variant+3)%3;
+ const c=CHARACTERS[state.index];currentSkin=createSkin(c,state.variant);
+ document.documentElement.style.setProperty('--accent',c.accent);document.documentElement.style.setProperty('--accent-rgb',hexRGB(c.accent).map(v=>Math.round(v*255)).join(','));
+ $('characterName').textContent=c.name;$('seriesLabel').textContent=c.series;$('characterCounter').innerHTML=`<b>${String(state.index+1).padStart(2,'0')}</b> / 20`;$('ghostIndex').textContent=String(state.index+1).padStart(2,'0');
+ document.title=`${c.short} · ${currentSkin.name} — Anime Skin Studio`;
+ if(renderer)renderer.setSkin(currentSkin);else showFallback();
+ renderSource();renderVariants();updateRosterSelection();store();
+ if(scroll){const selected=$('roster').querySelector('.selected');if(selected){let left=selected.offsetLeft-$('roster').offsetLeft-($('roster').clientWidth-selected.offsetWidth)/2;$('roster').scrollTo({left,behavior:'smooth'});}}
+ try{history.replaceState(null,'',`#${c.id}/${state.variant}`)}catch(e){}
+}
+function renderVariants(){
+ const c=CHARACTERS[state.index];$('wardrobeIndex').textContent=`0${state.variant+1} / 03`;
+ $('variantList').innerHTML=c.variants.map((name,v)=>`<button class="variant ${v===state.variant?'selected':''}" data-variant="${v}" role="tab" aria-selected="${v===state.variant}" title="${xmlEscape(c.name+' — '+name)}"><span class="variant-preview">${frontSVG(createSkin(c,v))}</span><span><strong>${xmlEscape(name)}</strong><small>${v===0?'Signature':'Alternate '+String(v).padStart(2,'0')}</small></span></button>`).join('');
+}
+function renderSource(){
+ const isAtlas=state.source==='atlas';$('sourceBacking').classList.toggle('portrait',!isAtlas);
+ $('sourceArt').innerHTML=isAtlas?atlasSVG(currentSkin):frontSVG(currentSkin,state.back);
+ $('sourceDimension').textContent=isAtlas?'64 × 64 PIXELS':'16 × 32 PIXELS';$('sourceMeta').textContent=isAtlas?'64 × 64':'16 × 32';$('pixelInfo').textContent='RGBA';$('flipSource').hidden=isAtlas;$('guideBtn').hidden=!isAtlas;
+ $('uvGuide').hidden=!state.guide||!isAtlas;
+ $('sourceTabs').querySelectorAll('button').forEach(b=>{const active=b.dataset.source===state.source;b.classList.toggle('selected',active);b.setAttribute('aria-selected',String(active))});
+}
+function renderRoster(){
+ const q=$('rosterSearch').value.trim().toLowerCase();const matches=CHARACTERS.map((c,i)=>({c,i})).filter(({c})=>(c.name+' '+c.short+' '+c.series).toLowerCase().includes(q));
+ $('rosterCount').textContent=matches.length;
+ $('roster').innerHTML=matches.length?matches.map(({c,i})=>`<button class="roster-card ${i===state.index?'selected':''}" data-character="${i}" role="option" aria-selected="${i===state.index}" aria-label="${xmlEscape(c.name+' — '+c.series)}" title="${xmlEscape(c.name+' · '+c.series)}"><span class="roster-number">${String(i+1).padStart(2,'0')}</span><span class="roster-avatar">${avatarSVG(createSkin(c,0))}</span><span class="roster-name">${c.short}</span></button>`).join(''):'<div class="no-results">No characters found.</div>';
+}
+function updateRosterSelection(){document.querySelectorAll('[data-character]').forEach(b=>{let active=Number(b.dataset.character)===state.index;b.classList.toggle('selected',active);if(b.getAttribute('role')==='option')b.setAttribute('aria-selected',String(active));})}
+function renderBrowser(){
+ const q=$('modalSearch').value.trim().toLowerCase();const matches=CHARACTERS.map((c,i)=>({c,i})).filter(({c})=>(c.name+' '+c.series).toLowerCase().includes(q));
+ $('modalCount').textContent=`${matches.length} CHARACTERS / ${matches.length*3} LOOKS`;
+ $('modalGrid').innerHTML=matches.length?matches.map(({c,i})=>`<button class="modal-character ${i===state.index?'selected':''}" data-character="${i}" style="--char-accent:${c.accent}" aria-label="${xmlEscape(c.name)}">${avatarSVG(createSkin(c,0))}<strong>${c.short}</strong><small>${xmlEscape(c.series)}</small></button>`).join(''):'<div class="no-results">No match. Try a name or an anime.</div>';
+}
+function openModal(id){lastFocus=document.activeElement;$(id).hidden=false;document.body.style.overflow='hidden';if(id==='browseModal'){$('modalSearch').value='';renderBrowser();setTimeout(()=>$('modalSearch').focus(),0)}else setTimeout(()=>$('closeHelp').focus(),0)}
+function closeModal(id){$(id).hidden=true;document.body.style.overflow='';if(lastFocus&&lastFocus.focus)lastFocus.focus()}
+function setAnimation(name){if(!motionNames.includes(name))return;state.animation=name;if(renderer){renderer.animation=name;renderer.time=0;}document.querySelectorAll('[data-motion]').forEach(b=>{const selected=b.dataset.motion===name;b.classList.toggle('selected',selected);b.setAttribute('aria-pressed',String(selected))});}
+function togglePause(){if(!renderer)return;renderer.paused=!renderer.paused;renderPause()}
+function renderPause(){if(!renderer)return;$('pauseBtn').innerHTML=icon(renderer.paused?'play':'pause');$('pauseBtn').setAttribute('aria-label',renderer.paused?'Play animation':'Pause animation');$('pauseBtn').setAttribute('aria-pressed',String(renderer.paused))}
+function setExportOpen(open){$('exportMenu').hidden=!open;$('exportBtn').setAttribute('aria-expanded',String(open));}
+function slug(s){return s.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+function filename(s=currentSkin){return `${s.character.id}_${slug(s.name)}`}
+function downloadBlob(blob,name){const a=document.createElement('a');const url=URL.createObjectURL(blob);a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000)}
+function skinCanvas(skin){const c=document.createElement('canvas');c.width=64;c.height=64;const ctx=c.getContext('2d');ctx.putImageData(new ImageData(new Uint8ClampedArray(rgbaPixels(skin)),64,64),0,0);return c}
+function PNGbytes(s){const data=skinCanvas(s).toDataURL('image/png').split(',')[1];return Uint8Array.from(atob(data),x=>x.charCodeAt(0))}
+const utf8=new TextEncoder();
+const crcTable=(()=>{let t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(data){let c=0xffffffff;for(let b of data)c=crcTable[(c^b)&255]^(c>>>8);return(c^0xffffffff)>>>0}
+function zipStore(files){
+ const blocks=[],central=[];let offset=0,centralSize=0;
+ for(const file of files){const name=utf8.encode(file.name),data=typeof file.data==='string'?utf8.encode(file.data):file.data,crc=crc32(data);const h=new Uint8Array(30+name.length),v=new DataView(h.buffer);
+  v.setUint32(0,0x04034b50,true);v.setUint16(4,20,true);v.setUint16(6,0x0800,true);v.setUint16(12,0x0021,true);v.setUint32(14,crc,true);v.setUint32(18,data.length,true);v.setUint32(22,data.length,true);v.setUint16(26,name.length,true);h.set(name,30);blocks.push(h,data);
+  const ch=new Uint8Array(46+name.length),cv=new DataView(ch.buffer);cv.setUint32(0,0x02014b50,true);cv.setUint16(4,20,true);cv.setUint16(6,20,true);cv.setUint16(8,0x0800,true);cv.setUint16(14,0x0021,true);cv.setUint32(16,crc,true);cv.setUint32(20,data.length,true);cv.setUint32(24,data.length,true);cv.setUint16(28,name.length,true);cv.setUint32(42,offset,true);ch.set(name,46);central.push(ch);centralSize+=ch.length;offset+=h.length+data.length;
+ }
+ const end=new Uint8Array(22),e=new DataView(end.buffer);e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,centralSize,true);e.setUint32(16,offset,true);return new Blob([...blocks,...central,end],{type:'application/zip'});
+}
+async function exportCollection(){
+ if(packBusy)return;packBusy=true;$('exportBtn').disabled=true;setExportOpen(false);
+ try{
+  const files=[{name:'READ_ME.txt',data:'ANIME SKIN STUDIO\n20 characters / 60 fan-made looks\n\nChoose the Classic (Steve, 4-pixel arms) model in Minecraft.\nImport the 64 x 64 PNG. The SVG is the editable, transparent vector atlas.\nTransparent spaces outside the UV islands are intentional. All base faces are opaque.\nOuter layers contain the hair, collars and garment detailing.\n\nFan-made artwork; character and Minecraft rights belong to their respective owners.\nNot an official or endorsed collection.\n'}];
+  let n=0;
+  for(const c of CHARACTERS)for(let v=0;v<3;v++){const s=createSkin(c,v),path=`skins/${c.id}/${filename(s)}`;files.push({name:path+'.svg',data:atlasSVG(s)},{name:path+'.png',data:PNGbytes(s)});n++;if(n%5===0){toast(`Preparing collection… ${n} / 60`,10000);await new Promise(r=>setTimeout(r,0));}}
+  downloadBlob(zipStore(files),'anime-skin-studio_60-skins.zip');toast('All 60 skins exported. Enjoy your collection.',3500);
+ }catch(err){console.error(err);toast('The export could not be completed. Please try again.',4000)}finally{packBusy=false;$('exportBtn').disabled=false;}
+}
+function doExport(type){
+ setExportOpen(false);const base=filename();
+ if(type==='pack'){exportCollection();return}
+ if(type==='svg'){downloadBlob(new Blob([atlasSVG(currentSkin)],{type:'image/svg+xml'}),base+'.svg');toast('Transparent SVG atlas exported');}
+ if(type==='front'){downloadBlob(new Blob([frontSVG(currentSkin,state.back)],{type:'image/svg+xml'}),base+(state.back?'_back':'_front')+'.svg');toast('Transparent character sprite exported');}
+ if(type==='png'){skinCanvas(currentSkin).toBlob(blob=>{if(blob){downloadBlob(blob,base+'.png');toast('64 × 64 skin exported · Choose Classic in Minecraft')}});}
+ if(type==='snapshot'){
+  if(!renderer){toast('A 3D snapshot needs WebGL. SVG and skin PNG exports still work.');return;}
+  renderer.render();renderer.canvas.toBlob(blob=>{if(blob){downloadBlob(blob,base+'_3d.png');toast('3D snapshot exported')}});
+ }
+}
+function showFallback(){if(!currentSkin)return;$('fallback').hidden=false;$('fallback').innerHTML=frontSVG(currentSkin)+'<p>3D needs WebGL. Enable hardware acceleration or open this file in Chrome, Edge or Firefox. All 60 SVG / PNG skins remain available.</p>';}
+function closeExpanded(){if($('previewCard').classList.contains('expanded')){$('previewCard').classList.remove('expanded');document.body.style.overflow='';$('fullscreenBtn').innerHTML=icon('maximize');if(renderer)renderer.resize();return true;}return false;}
+async function fullscreen(){if(closeExpanded())return;try{if(document.fullscreenElement)await document.exitFullscreen();else await $('previewCard').requestFullscreen();}catch(e){$('previewCard').classList.add('expanded');document.body.style.overflow='hidden';$('fullscreenBtn').innerHTML=icon('minimize');if(renderer)renderer.resize();}}
+function switchEnvironment(env){if(!renderer)return;renderer.environment=env;$('previewCard').classList.toggle('overworld',env==='overworld');$('previewCard').classList.toggle('void',env==='void');document.querySelectorAll('[data-env]').forEach(b=>{const on=b.dataset.env===env;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))});}
+function switchLayers(){if(!renderer)return;renderer.layers=!renderer.layers;toggleButton('layersBtn',renderer.layers)}
+function switchRotate(){if(!renderer)return;renderer.autoRotate=!renderer.autoRotate;toggleButton('rotateBtn',renderer.autoRotate)}
+function resetCamera(){if(renderer){renderer.reset();toggleButton('rotateBtn',false);document.querySelectorAll('[data-view]').forEach(b=>b.classList.remove('active'))}}
+// Event delegation keeps character and outfit changes lightweight.
+$('variantList').addEventListener('click',e=>{const b=e.target.closest('[data-variant]');if(b)selectCharacter(state.index,Number(b.dataset.variant))});
+$('roster').addEventListener('click',e=>{const b=e.target.closest('[data-character]');if(b)selectCharacter(Number(b.dataset.character))});
+$('modalGrid').addEventListener('click',e=>{const b=e.target.closest('[data-character]');if(b){selectCharacter(Number(b.dataset.character),0,true);closeModal('browseModal')}});
+$('rosterSearch').addEventListener('input',renderRoster);$('modalSearch').addEventListener('input',renderBrowser);
+$('sourceTabs').addEventListener('click',e=>{const b=e.target.closest('[data-source]');if(b){state.source=b.dataset.source;renderSource()}});
+$('flipSource').addEventListener('click',()=>{state.back=!state.back;renderSource()});
+$('guideBtn').addEventListener('click',()=>{state.guide=!state.guide;toggleButton('guideBtn',state.guide);renderSource()});
+$('sourceDownload').addEventListener('click',()=>doExport(state.source==='atlas'?'svg':'front'));
+$('prevCharacter').addEventListener('click',()=>selectCharacter(state.index-1,0,true));$('nextCharacter').addEventListener('click',()=>selectCharacter(state.index+1,0,true));
+$('rosterPrev').addEventListener('click',()=>$('roster').scrollBy({left:-400,behavior:'smooth'}));$('rosterNext').addEventListener('click',()=>$('roster').scrollBy({left:400,behavior:'smooth'}));
+$('browseBtn').addEventListener('click',()=>openModal('browseModal'));$('closeBrowse').addEventListener('click',()=>closeModal('browseModal'));$('helpBtn').addEventListener('click',()=>openModal('helpModal'));$('closeHelp').addEventListener('click',()=>closeModal('helpModal'));
+for(let id of ['browseModal','helpModal'])$(id).addEventListener('click',e=>{if(e.target===$(id))closeModal(id)});
+$('themeBtn').addEventListener('click',()=>{document.body.classList.toggle('light');$('themeBtn').innerHTML=icon(document.body.classList.contains('light')?'moon':'sun');store()});
+$('exportBtn').addEventListener('click',()=>setExportOpen($('exportMenu').hidden));$('exportMenu').addEventListener('click',e=>{const b=e.target.closest('[data-export]');if(b)doExport(b.dataset.export)});
+window.addEventListener('click',e=>{if(!e.target.closest('.export-wrap'))setExportOpen(false)});
+$('rotateBtn').addEventListener('click',switchRotate);$('layersBtn').addEventListener('click',switchLayers);$('resetBtn').addEventListener('click',resetCamera);$('fullscreenBtn').addEventListener('click',fullscreen);
+$('zoomIn').addEventListener('click',()=>{if(renderer)renderer.distance=Math.max(37,renderer.distance-5)});$('zoomOut').addEventListener('click',()=>{if(renderer)renderer.distance=Math.min(105,renderer.distance+5)});
+$('gridBtn').addEventListener('click',()=>{if(renderer){renderer.grid=!renderer.grid;toggleButton('gridBtn',renderer.grid);$('previewCard').classList.toggle('clean',!renderer.grid)}});
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{if(renderer){renderer.view(b.dataset.view);toggleButton('rotateBtn',false);document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x===b))}}));
+document.querySelectorAll('[data-env]').forEach(b=>b.addEventListener('click',()=>switchEnvironment(b.dataset.env)));
+$('pauseBtn').addEventListener('click',togglePause);$('speedRange').addEventListener('input',()=>{let speed=Number($('speedRange').value)/100;if(renderer)renderer.speed=speed;$('speedOutput').textContent=(Number.isInteger(speed)?speed.toFixed(1):String(speed))+'×'});
+$('motionGroup').insertAdjacentHTML('beforeend',motionNames.map((name,i)=>`<button class="motion-button ${i===0?'selected':''}" data-motion="${name}" title="${name[0].toUpperCase()+name.slice(1)} (${i+1})" aria-pressed="${i===0}">${icon(name)}<span>${name[0].toUpperCase()+name.slice(1)}</span></button>`).join(''));
+$('motionGroup').addEventListener('click',e=>{const b=e.target.closest('[data-motion]');if(b)setAnimation(b.dataset.motion)});
+$('sourceArt').addEventListener('pointermove',e=>{if(state.source!=='atlas')return;let r=$('sourceArt').getBoundingClientRect(),x=Math.max(0,Math.min(63,Math.floor((e.clientX-r.left)/r.width*64))),y=Math.max(0,Math.min(63,Math.floor((e.clientY-r.top)/r.height*64)));$('pixelInfo').textContent=`${x},${y} · ${currentSkin.pixels[y*64+x]||'alpha'}`;});
+$('sourceArt').addEventListener('pointerleave',()=>$('pixelInfo').textContent='RGBA');
+window.addEventListener('keydown',e=>{
+ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();if($('browseModal').hidden)openModal('browseModal');else closeModal('browseModal');return;}
+ if(e.key==='Escape'){closeExpanded();setExportOpen(false);if(!$('browseModal').hidden)closeModal('browseModal');if(!$('helpModal').hidden)closeModal('helpModal');return;}
+ const openDialog=!$('browseModal').hidden?$('browseModal'):!$('helpModal').hidden?$('helpModal'):null;
+ if(openDialog){if(e.key==='Tab'){let elems=[...openDialog.querySelectorAll('button,input,[tabindex]')].filter(x=>!x.disabled);let first=elems[0],last=elems[elems.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}return;}
+ if(e.target.matches('input,textarea,select,[contenteditable="true"]')||e.ctrlKey||e.metaKey||e.altKey)return;
+ if(e.key==='ArrowLeft'){e.preventDefault();selectCharacter(state.index-1,0,true)}
+ if(e.key==='ArrowRight'){e.preventDefault();selectCharacter(state.index+1,0,true)}
+ if(e.key==='['){e.preventDefault();selectCharacter(state.index,state.variant-1)}
+ if(e.key===']'){e.preventDefault();selectCharacter(state.index,state.variant+1)}
+ if(e.code==='Space'){e.preventDefault();togglePause()}
+ if(/^[1-8]$/.test(e.key))setAnimation(motionNames[Number(e.key)-1]);
+ if(e.key.toLowerCase()==='r')switchRotate();if(e.key.toLowerCase()==='l')switchLayers();if(e.key==='0')resetCamera();if(e.key.toLowerCase()==='f')fullscreen();
+ if(e.key==='?')openModal('helpModal');
+});
+document.addEventListener('fullscreenchange',()=>{$('fullscreenBtn').innerHTML=icon(document.fullscreenElement?'minimize':'maximize');if(renderer)setTimeout(()=>renderer.resize(),0)});
+// UV guides are a preview overlay and never contaminate exported textures.
+$('uvGuide').innerHTML='<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">'+Object.entries(PARTS).map(([p,s])=>[false,true].map(o=>{const[x,y]=o?s.outer:s.base;return `<rect x="${x+.1}" y="${y+.1}" width="${2*s.w+2*s.d-.2}" height="${s.h+s.d-.2}" rx=".4" fill="none" stroke="${o?'#b4da89':'#d5e1ee'}" stroke-width=".18" stroke-dasharray=".6 .5"/>`}).join('')).join('')+'</svg>';
+try{renderer=new SkinRenderer($('previewCanvas'));renderer.onOrbit=()=>{toggleButton('rotateBtn',false);document.querySelectorAll('[data-view]').forEach(b=>b.classList.remove('active'))};renderer.onError=message=>{toast(message,6000);showFallback()};if(matchMedia('(prefers-reduced-motion: reduce)').matches){renderer.paused=true;renderPause();}}
+catch(e){console.warn('WebGL fallback:',e.message);}
+let initialIndex=0,initialVariant=0;
+try{const saved=JSON.parse(localStorage.getItem('anime-skin-studio-v1')||'null');if(saved){const index=CHARACTERS.findIndex(c=>c.id===saved.id);if(index>=0)initialIndex=index;initialVariant=Number(saved.variant)||0;if(saved.theme==='light')document.body.classList.add('light');}}
+catch(e){}
+const hash=location.hash.slice(1).split('/');if(hash[0]){const i=CHARACTERS.findIndex(c=>c.id===hash[0]);if(i>=0){initialIndex=i;initialVariant=Number(hash[1])||0;}}
+$('themeBtn').innerHTML=icon(document.body.classList.contains('light')?'moon':'sun');
+renderRoster();selectCharacter(initialIndex,initialVariant);
+// A small documented surface for automated tests and embedding; no network access.
+window.SkinStudio={characters:CHARACTERS,get state(){return {...state}},get renderer(){return renderer},get skin(){return currentSkin},select:selectCharacter,setAnimation,createSkin,atlasSVG,frontSVG,rgbaPixels,zipStore,PNGbytes};
+
+</script>
+</body></html>

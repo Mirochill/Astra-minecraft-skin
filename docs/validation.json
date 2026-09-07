@@ -1,0 +1,32 @@
+{
+  "scope": "Chromium software renderer; desktop smoke test, not a Minecraft import test",
+  "editions": {
+    "v1": {
+      "file": "Anime_Skin_Studio.html",
+      "characters": 20,
+      "variants": 60,
+      "javascript_syntax": "passed",
+      "preview": "passed",
+      "backend": "software",
+      "uncaught_errors": [],
+      "external_requests": []
+    },
+    "v2": {
+      "file": "Anime_Atelier_Sculpted.html",
+      "characters": 20,
+      "variants": 60,
+      "javascript_syntax": "passed",
+      "preview": "passed",
+      "backend": "software",
+      "uncaught_errors": [],
+      "external_requests": []
+    }
+  },
+  "identical_character_order_and_variant_names": true,
+  "not_tested": [
+    "Hardware WebGL",
+    "Every export/import combination",
+    "Minecraft client import",
+    "External GLB import"
+  ]
+}
