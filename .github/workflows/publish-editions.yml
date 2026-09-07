@@ -1,0 +1,37 @@
+name: Publish two standalone editions
+on:
+  push:
+    branches: [publish-studio-editions-20260907]
+    paths:
+      - '.github/publication/**'
+      - '.github/workflows/publish-editions.yml'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: publish-studio-editions-20260907
+      - name: Restore exact source snapshots
+        run: python3 .github/publication/restore.py
+      - name: Capture actual browser previews
+        shell: bash
+        run: |
+          python3 -m venv "$RUNNER_TEMP/skin-preview"
+          source "$RUNNER_TEMP/skin-preview/bin/activate"
+          pip install --disable-pip-version-check playwright==1.57.0
+          if ! command -v google-chrome >/dev/null && ! command -v chromium >/dev/null; then
+            python -m playwright install --with-deps chromium
+          fi
+          python .github/publication/preview.py
+      - name: Commit verified HTML and documentation assets
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- Anime_Skin_Studio.html Anime_Atelier_Sculpted.html docs/manifest.json docs/validation.json docs/assets/v1-preview.png docs/assets/v2-preview.png docs/assets/sculpted-detail.png
+          git diff --cached --quiet || git commit -m "Publish original and sculpted HTML snapshots with real previews"
+          git push origin HEAD:publish-studio-editions-20260907

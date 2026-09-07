@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 410" role="img" aria-labelledby="title desc">
+<title id="title">Astra Anime Skin Studios : du pixel au volume</title>
+<desc id="desc">Deux applications HTML autonomes, 20 personnages et 60 tenues. Original Skin Studio et version améliorée Anime Atelier Sculpted.</desc>
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101912"/><stop offset="1" stop-color="#17251c"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#bcd78b" stop-opacity=".19"/><stop offset="1" stop-color="#bcd78b" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#a7bf90" stroke-opacity=".08"/></pattern>
+<linearGradient id="line"><stop stop-color="#e1a64f"/><stop offset="1" stop-color="#d5e6ab"/></linearGradient>
+</defs>
+<rect width="1600" height="410" rx="24" fill="url(#bg)"/>
+<ellipse cx="1310" cy="165" rx="470" ry="380" fill="url(#glow)"/>
+<rect x="975" width="625" height="410" rx="24" fill="url(#grid)"/>
+<g font-family="Arial,Helvetica,sans-serif">
+<g fill="#d5e6ab"><rect x="57" y="49" width="9" height="9"/><rect x="70" y="49" width="9" height="9"/><rect x="83" y="49" width="9" height="9" opacity=".5"/><rect x="57" y="62" width="9" height="9"/><rect x="70" y="62" width="9" height="9"/><rect x="83" y="62" width="9" height="9"/><rect x="57" y="75" width="9" height="9"/><rect x="70" y="75" width="9" height="9" opacity=".4"/></g>
+<text x="112" y="72" fill="#b2c0ab" font-size="17" letter-spacing="4">ASTRA / ANIME SKIN STUDIOS</text>
+<text x="53" y="174" fill="#f2f4e9" font-size="79" font-weight="700" letter-spacing="-4">Du pixel au volume.</text>
+<text x="58" y="222" fill="#a6b29f" font-size="25">20 personnages. 60 tenues. Deux codes à explorer.</text>
+<rect x="58" y="285" width="232" height="56" rx="12" fill="#1d231b" stroke="#947142"/>
+<text x="81" y="320" fill="#edb966" font-size="17" letter-spacing="2">01 / ORIGINAL</text>
+<path d="M314 313h68m-9-7 9 7-9 7" fill="none" stroke="url(#line)" stroke-width="2"/>
+<rect x="407" y="285" width="261" height="56" rx="12" fill="#d5e6ab"/>
+<text x="431" y="320" fill="#25301d" font-size="17" font-weight="700" letter-spacing="2">02 / SCULPTED</text>
+<text x="1538" y="378" fill="#899880" font-size="12" letter-spacing="2.2" text-anchor="end">HTML · SVG · WEBGL · OFFLINE</text>
+</g>
+<g transform="translate(1100 86)" fill="none" stroke-linejoin="round" stroke-width="2">
+<path d="m24 94 104-60 104 60-104 60zm0 0v121l104 60 104-60V94m-104 60v121" stroke="#d9ac66" opacity=".45"/>
+<path d="m64 94 64-37 64 37-64 37zm0 0v75l64 37 64-37V94m-64 37v75" stroke="#dfa64f" opacity=".35"/>
+<path d="m169 44 87-50 87 50-87 50zm0 0v101l87 50 87-50V44m-87 50v101" stroke="#d5e6ab"/>
+<path d="m169 69 87 50 87-50m-174 25 87 50 87-50m-174 25 87 50 87-50m-130-151v101m43-126v101m44-101v101" stroke="#d5e6ab" opacity=".22"/>
+<path d="m169 44 87-50 87 50-87 50z" fill="#d5e6ab" fill-opacity=".09" stroke="none"/>
+<rect x="165" y="40" width="8" height="8" fill="#d5e6ab" stroke="none"/><rect x="252" y="90" width="8" height="8" fill="#d5e6ab" stroke="none"/><rect x="339" y="40" width="8" height="8" fill="#d5e6ab" stroke="none"/>
+</g>
+</svg>
