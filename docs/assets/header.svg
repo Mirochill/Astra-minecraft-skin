@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 410" role="img" aria-labelledby="title desc">
-<title id="title">Astra Anime Skin Studios : du pixel au volume</title>
-<desc id="desc">Deux applications HTML autonomes, 20 personnages et 60 tenues. Original Skin Studio et version améliorée Anime Atelier Sculpted.</desc>
+<title id="title">Astra Anime Skin Studios: from pixel to volume</title>
+<desc id="desc">Two standalone HTML applications, 20 characters and 60 outfits. Original Skin Studio and the improved Anime Atelier Sculpted version.</desc>
 <defs>
 <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101912"/><stop offset="1" stop-color="#17251c"/></linearGradient>
 <radialGradient id="glow"><stop stop-color="#bcd78b" stop-opacity=".19"/><stop offset="1" stop-color="#bcd78b" stop-opacity="0"/></radialGradient>
@@ -13,8 +13,8 @@
 <g font-family="Arial,Helvetica,sans-serif">
 <g fill="#d5e6ab"><rect x="57" y="49" width="9" height="9"/><rect x="70" y="49" width="9" height="9"/><rect x="83" y="49" width="9" height="9" opacity=".5"/><rect x="57" y="62" width="9" height="9"/><rect x="70" y="62" width="9" height="9"/><rect x="83" y="62" width="9" height="9"/><rect x="57" y="75" width="9" height="9"/><rect x="70" y="75" width="9" height="9" opacity=".4"/></g>
 <text x="112" y="72" fill="#b2c0ab" font-size="17" letter-spacing="4">ASTRA / ANIME SKIN STUDIOS</text>
-<text x="53" y="174" fill="#f2f4e9" font-size="79" font-weight="700" letter-spacing="-4">Du pixel au volume.</text>
-<text x="58" y="222" fill="#a6b29f" font-size="25">20 personnages. 60 tenues. Deux codes à explorer.</text>
+<text x="53" y="174" fill="#f2f4e9" font-size="79" font-weight="700" letter-spacing="-4">From pixel to volume.</text>
+<text x="58" y="222" fill="#a6b29f" font-size="25">20 characters. 60 outfits. Two codebases to explore.</text>
 <rect x="58" y="285" width="232" height="56" rx="12" fill="#1d231b" stroke="#947142"/>
 <text x="81" y="320" fill="#edb966" font-size="17" letter-spacing="2">01 / ORIGINAL</text>
 <path d="M314 313h68m-9-7 9 7-9 7" fill="none" stroke="url(#line)" stroke-width="2"/>
